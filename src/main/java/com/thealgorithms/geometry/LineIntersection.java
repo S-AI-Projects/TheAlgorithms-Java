@@ -5,6 +5,28 @@ import java.util.Optional;
 
 /**
  * Utility methods for checking and computing 2D line segment intersections.
+ *
+ * <p>Supported Domain & Boundary Contract:
+ * <ul>
+ *   <li><b>Coordinate Domain:</b> Endpoints are represented by {@link Point} with 32-bit signed integer
+ *       coordinates within [{@link Integer#MIN_VALUE}, {@link Integer#MAX_VALUE}]. Intermediate geometric
+ *       determinants use 64-bit {@code long} calculations.</li>
+ *   <li><b>Smallest Valid Input (Degenerate Boundary):</b> Zero-length segments where {@code p1.equals(p2)}
+ *       and/or {@code q1.equals(q2)} (e.g., origin point {@code (0, 0)}). A degenerate point intersects another
+ *       point or segment if and only if it lies on that segment.</li>
+ *   <li><b>Interior Crossing:</b> Two non-parallel segments crossing strictly inside their interiors return
+ *       {@code intersects = true} and a unique {@link Optional} containing the intersection {@link Point2D.Double}.</li>
+ *   <li><b>Touching Endpoint Boundary:</b> Segments sharing a single common vertex return {@code intersects = true}
+ *       and {@link Optional} containing that vertex coordinates.</li>
+ *   <li><b>T-Junction Boundary:</b> An endpoint of one segment lying on the interior of the other segment returns
+ *       {@code intersects = true} and {@link Optional} containing that endpoint.</li>
+ *   <li><b>Collinear Overlap Boundary:</b> Collinear segments sharing more than one point return {@code intersects = true}
+ *       and {@link Optional#empty()} because no single unique intersection point exists.</li>
+ *   <li><b>Parallel / Collinear Disjoint Boundary:</b> Parallel or collinear non-overlapping segments return
+ *       {@code intersects = false} and {@link Optional#empty()}.</li>
+ *   <li><b>Preconditions:</b> All {@link Point} parameters must be non-null; passing null violates the contract
+ *       and results in {@link NullPointerException} (line 23).</li>
+ * </ul>
  */
 public final class LineIntersection {
     private LineIntersection() {
