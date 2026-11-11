@@ -1,0 +1,54 @@
+{
+  "task": "R45-T006",
+  "target_file": "src/main/java/com/thealgorithms/bitmanipulation/NonRepeatingNumberFinder.java",
+  "test_file": "src/test/java/com/thealgorithms/bitmanipulation/NonRepeatingNumberFinderTest.java",
+  "refactored_responsibility": "Extracted reduceXor(int[] arr) method with dedicated xorSum accumulator separating the public query entry point from bitwise XOR reduction.",
+  "tool_versions": {
+    "python": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "maven": "Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)"
+  },
+  "actual_command": "mvn test -Dtest=NonRepeatingNumberFinderTest",
+  "nonzero_test_count": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "SUCCESS",
+  "fixtures": [
+    {
+      "name": "Smallest Valid Input (Empty Array)",
+      "precondition_lines": "NonRepeatingNumberFinder.java:26 (@return ... or 0 if array is empty), 39 (xorSum = 0)",
+      "literal_inputs": "new int[] {}",
+      "expected_results": "0",
+      "actual_results": "0; passed in testSmallestValidInputEmptyArrayFixture"
+    },
+    {
+      "name": "Smallest Valid Input (Single Element)",
+      "precondition_lines": "NonRepeatingNumberFinder.java:28-30, 39-43 (single loop iteration: 0 ^ 12 = 12)",
+      "literal_inputs": "new int[] {12}",
+      "expected_results": "12",
+      "actual_results": "12; passed in testSmallestValidInputSingleElementFixture"
+    },
+    {
+      "name": "Ordinary Input (Documentation Example)",
+      "precondition_lines": "NonRepeatingNumberFinder.java:28-30, 39-44 (reduceXor loop)",
+      "literal_inputs": "new int[] {2, 3, 5, 2, 3}",
+      "expected_results": "5 (pairwise cancellation of 2 and 3)",
+      "actual_results": "5; passed in testOrdinaryInputDocumentationFixture"
+    },
+    {
+      "name": "Domain Boundary (Negative Numbers)",
+      "precondition_lines": "NonRepeatingNumberFinder.java:39-43",
+      "literal_inputs": "new int[] {-42, 99, -42}",
+      "expected_results": "99",
+      "actual_results": "99; passed in testDomainBoundaryNegativeNumbers"
+    },
+    {
+      "name": "Boundary Precondition (Null Input)",
+      "precondition_lines": "NonRepeatingNumberFinder.java:40 (for-each over null throws NullPointerException)",
+      "literal_inputs": "null",
+      "expected_results": "NullPointerException",
+      "actual_results": "NullPointerException thrown; passed in testNullArrayThrowsNullPointerException"
+    }
+  ]
+}
