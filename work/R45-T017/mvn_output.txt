@@ -1,0 +1,58 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24447 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] argLine set to -javaagent:/Users/shyamlibakale/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.ciphers.AESEncryptionExampleTest
+[R45-T017] main-output-lines | input=AESEncryption.main() | expected=4 | actual=4
+[R45-T017] smallest-empty-cipher-len | input=plainText="" | expected=16 | actual=16
+[R45-T017] smallest-empty-decrypt | input=cipherLen=16 | expected="" | actual=""
+[R45-T017] smallest-single-char-len | input=plainText="A" | expected=17 | actual=17
+[R45-T017] smallest-single-char-decrypt | input=cipherLen=17 | expected=A | actual=A
+[R45-T017] ordinary-key-hex | input=16 zero bytes | expected=00000000000000000000000000000000 | actual=00000000000000000000000000000000
+[R45-T017] ordinary-plaintext-hex | input="Hello World" | expected=48656C6C6F20576F726C64 | actual=48656C6C6F20576F726C64
+[R45-T017] ordinary-cipher-len | input="Hello World" (11B + 16B tag) | expected=27 | actual=27
+[R45-T017] ordinary-decrypt | input=firstCipher (27B) | expected=Hello World | actual=Hello World
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.thealgorithms.ciphers.AESEncryptionExampleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.887 s
+[INFO] Finished at: 2026-11-11T17:48:25+05:30
+[INFO] ------------------------------------------------------------------------
