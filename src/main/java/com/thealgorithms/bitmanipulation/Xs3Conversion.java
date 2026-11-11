@@ -23,6 +23,13 @@ public final class Xs3Conversion {
     /**
      * Converts an XS-3 (Excess-3) number to binary.
      *
+     * <p>Protected Invariants:
+     * <ul>
+     *   <li>Each 4-bit nibble {@code (xs3 & 0xF)} represents one Excess-3 digit and is decoded by subtracting 3.</li>
+     *   <li>Decimal place-value reconstruction uses decimal base-10 weighting {@code multiplier *= 10} (line 42).</li>
+     *   <li>Bit-shift step {@code xs3 >>= 4} consumes exactly one 4-bit nibble per iteration.</li>
+     * </ul>
+     *
      * @param xs3 The XS-3 number.
      * @return The corresponding binary number.
      */
@@ -40,6 +47,13 @@ public final class Xs3Conversion {
 
     /**
      * Converts a binary number to XS-3 (Excess-3).
+     *
+     * <p>Protected Invariants:
+     * <ul>
+     *   <li>Each decimal digit {@code (binary % 10)} is biased by +3 into its 4-bit Excess-3 representation.</li>
+     *   <li>Nibble alignment uses 4-bit boundary scaling {@code shift * 4} (line 66) to avoid bit corruption across digits.</li>
+     *   <li>Decimal digit consumption uses integer division {@code binary /= 10}.</li>
+     * </ul>
      *
      * @param binary The binary number.
      * @return The corresponding XS-3 number.
