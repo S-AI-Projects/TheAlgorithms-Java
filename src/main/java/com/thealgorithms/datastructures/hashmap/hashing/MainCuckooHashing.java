@@ -2,6 +2,30 @@ package com.thealgorithms.datastructures.hashmap.hashing;
 
 import java.util.Scanner;
 
+/**
+ * Interactive driver for {@link HashMapCuckooHashing}.
+ *
+ * <p>Contract:
+ * <ul>
+ *   <li><b>Input:</b> Stream of whitespace-delimited integer tokens from standard input ({@link System#in}).
+ *     Supported menu choices:
+ *     <ul>
+ *       <li>1 (Add key): reads integer {@code key}; precondition: key does not exist in table.</li>
+ *       <li>2 (Delete key): reads integer {@code key}; precondition: key exists in table.</li>
+ *       <li>3 (Print table): outputs table slots to standard output.</li>
+ *       <li>4 (Exit): terminates the program cleanly and closes scanner.</li>
+ *       <li>5 (Search key): reads integer {@code key}; prints 0-based bucket index.</li>
+ *       <li>6 (Load factor): prints current load factor formatted to 2 decimal places.</li>
+ *       <li>7 (Rehash): manually triggers rehashing and doubling table capacity.</li>
+ *     </ul>
+ *   </li>
+ *   <li><b>Output:</b> Writes menus, interactive prompts, table displays, search results, and load factors to standard output ({@link System#out}).</li>
+ *   <li><b>Mutations:</b> Mutates the internal {@link HashMapCuckooHashing} instance (initial capacity 7) and advances standard input stream state.</li>
+ *   <li><b>Preconditions:</b> Standard input must supply integer tokens matching the expected menu workflow.</li>
+ *   <li><b>Exceptions:</b> Throws {@link IllegalArgumentException} when an unknown choice is entered (line 66)
+ *       or when underlying operations reject duplicate key additions or missing key deletions.</li>
+ * </ul>
+ */
 public final class MainCuckooHashing {
     private MainCuckooHashing() {
     }
