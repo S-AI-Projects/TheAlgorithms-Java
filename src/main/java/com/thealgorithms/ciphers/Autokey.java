@@ -11,7 +11,22 @@ package com.thealgorithms.ciphers;
  */
 public class Autokey {
 
-    // Encrypts the plaintext using the Autokey cipher
+    /**
+     * Encrypts the plaintext using the Autokey cipher.
+     *
+     * <p>Protected conditions:
+     * <ul>
+     * <li>Normalizes {@code plaintext} to uppercase and strips non-letter characters
+     * ({@code [^A-Z]}) before indexing, and uppercases {@code keyword}.</li>
+     * <li>Appends the sanitized {@code plaintext} to {@code keyword} to form the autokey stream,
+     * covering all {@code 0 <= i < plaintext.length()} characters.</li>
+     * <li>Wraps character sums modulo 26 over {@code 'A'..'Z'}.</li>
+     * </ul>
+     *
+     * @param plaintext input message to encrypt
+     * @param keyword   initial cipher keyword
+     * @return uppercase ciphertext over {@code 'A'..'Z'}
+     */
     public String encrypt(String plaintext, String keyword) {
         plaintext = plaintext.toUpperCase().replaceAll("[^A-Z]", ""); // Sanitize input
         keyword = keyword.toUpperCase();

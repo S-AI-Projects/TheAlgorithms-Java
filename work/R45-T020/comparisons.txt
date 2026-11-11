@@ -1,0 +1,6 @@
+[R45-T020] smallest-empty | input=("", "A") | expected= | actual=
+[R45-T020] smallest-nonalpha | input=("123!", "A") | expected= | actual=
+[R45-T020] smallest-one-char | input=("A", "B") | expected=B | actual=B
+[R45-T020] boundary-mod-26-wrap | input=("Z", "B") | expected=A | actual=A
+[R45-T020] boundary-autokey-extension | input=("BC", "D") | expected=ED | actual=ED
+[R45-T020] ordinary-lowercase-spaced | input=("attack at dawn", "queen") | expected=QNXEPKTMDCGN | actual=QNXEPKTMDCGN
