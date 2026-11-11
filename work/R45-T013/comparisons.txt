@@ -1,0 +1,36 @@
+[R45-T013] ordinary-alice | input=weights=[2, 3] | expected=5 | actual=5
+[R45-T013] ordinary-scheduler | input=alice:[2,3],bob:[5],totalResources=100 | expected={alice=50, bob=50} | actual={bob=50, alice=50}
+[R45-T013] smallest-zero | input=weights=[0] | expected=0 | actual=0
+[R45-T013] smallest-one | input=weights=[1] | expected=1 | actual=1
+[R45-T013] smallest-scheduler | input=u1:[1],totalResources=1 | expected={u1=1} | actual={u1=1}
+[R45-T013] w-01-empty | input=[] | expected=0 | actual=0
+[R45-T013] w-02-zero | input=[0] | expected=0 | actual=0
+[R45-T013] w-03-one | input=[1] | expected=1 | actual=1
+[R45-T013] w-04-two | input=[2] | expected=2 | actual=2
+[R45-T013] w-05-three | input=[3] | expected=3 | actual=3
+[R45-T013] w-06-five | input=[5] | expected=5 | actual=5
+[R45-T013] w-07-seven | input=[7] | expected=7 | actual=7
+[R45-T013] w-08-ten | input=[10] | expected=10 | actual=10
+[R45-T013] w-09-zero-zero | input=[0, 0] | expected=0 | actual=0
+[R45-T013] w-10-zero-one | input=[0, 1] | expected=1 | actual=1
+[R45-T013] w-11-one-zero | input=[1, 0] | expected=1 | actual=1
+[R45-T013] w-12-one-one | input=[1, 1] | expected=2 | actual=2
+[R45-T013] w-13-one-two | input=[1, 2] | expected=3 | actual=3
+[R45-T013] w-14-two-three | input=[2, 3] | expected=5 | actual=5
+[R45-T013] w-15-three-four | input=[3, 4] | expected=7 | actual=7
+[R45-T013] w-16-four-six | input=[4, 6] | expected=10 | actual=10
+[R45-T013] w-17-ones | input=[1, 1, 1] | expected=3 | actual=3
+[R45-T013] w-18-zero-two-three | input=[0, 2, 3] | expected=5 | actual=5
+[R45-T013] w-19-one-two-three | input=[1, 2, 3] | expected=6 | actual=6
+[R45-T013] w-20-two-two-five | input=[2, 2, 5] | expected=9 | actual=9
+[R45-T013] w-21-two-three-five | input=[2, 3, 5] | expected=10 | actual=10
+[R45-T013] w-22-asc-four | input=[1, 2, 3, 4] | expected=10 | actual=10
+[R45-T013] w-23-desc-four | input=[4, 3, 2, 1] | expected=10 | actual=10
+[R45-T013] w-24-zeros-fives | input=[0, 5, 0, 5] | expected=10 | actual=10
+[R45-T013] alloc-01-single | input={a=[1]},totalResources=10 | expected={a=10} | actual={a=10}
+[R45-T013] alloc-02-equal | input={a=[1], b=[1]},totalResources=100 | expected={a=50, b=50} | actual={a=50, b=50}
+[R45-T013] alloc-03-split | input={a=[2, 3], b=[5]},totalResources=100 | expected={a=50, b=50} | actual={a=50, b=50}
+[R45-T013] alloc-04-zero-user | input={a=[0], b=[4]},totalResources=20 | expected={a=0, b=20} | actual={a=0, b=20}
+[R45-T013] alloc-05-three-users | input={a=[1, 1], b=[3], c=[5]},totalResources=100 | expected={a=20, b=30, c=50} | actual={a=20, b=30, c=50}
+[R45-T013] alloc-06-floor | input={a=[1], b=[2], c=[3]},totalResources=10 | expected={a=1, b=3, c=5} | actual={a=1, b=3, c=5}
+[R45-T013] equivalent-state | input=grouped([2,3],[5]) vs combined([5],[5]) | expected={bob=50, alice=50} | actual={bob=50, alice=50}
