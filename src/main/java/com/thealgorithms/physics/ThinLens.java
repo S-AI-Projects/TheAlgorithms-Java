@@ -14,6 +14,16 @@ package com.thealgorithms.physics;
  *   <li>v = image distance</li>
  * </ul>
  *
+ * <p>Invariant:
+ * For any non-zero focal length {@code f} and object distance {@code u} where {@code f != u},
+ * the image distance {@code v = imageDistance(f, u)} preserves the reciprocal lens relation:
+ * <pre>
+ *     (1.0 / v) + (1.0 / u) == 1.0 / f
+ * </pre>
+ * This invariant establishes conjugate foci symmetry: {@code imageDistance(f, imageDistance(f, u)) == u},
+ * and magnification proportionality: {@code magnification(v, u) * u == v}.
+ * </p>
+ *
  * Uses the Cartesian sign convention.
  *
  * @see <a href="https://en.wikipedia.org/wiki/Thin_lens">Thin Lens</a>

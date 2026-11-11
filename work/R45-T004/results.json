@@ -1,0 +1,62 @@
+{
+  "task": "R45-T004",
+  "target_file": "src/main/java/com/thealgorithms/physics/ThinLens.java",
+  "test_file": "src/test/java/com/thealgorithms/physics/ThinLensTest.java",
+  "tool_versions": {
+    "python": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "maven": "Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)"
+  },
+  "actual_command": "mvn test -Dtest=ThinLensTest",
+  "nonzero_test_count": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "SUCCESS",
+  "property_cases_count": 100,
+  "seed": 42,
+  "fixtures": [
+    {
+      "name": "Smallest Valid Input",
+      "precondition_lines": "ThinLens.java:37-39 (non-zero f, u), 41 (v formula), 58-60 (non-zero u for m), 72 (isRealImage)",
+      "literal_inputs": "f = 1.0, u = 2.0",
+      "expected_results": "v = 2.0, m = 1.0, isReal = true, invariant: (1/2.0 + 1/2.0 == 1/1.0)",
+      "actual_results": "v = 2.0, m = 1.0, isReal = true; passed in testSmallestValidInputFixture"
+    },
+    {
+      "name": "Ordinary Input",
+      "precondition_lines": "ThinLens.java:37-39, 41, 58-60, 72",
+      "literal_inputs": "f = 10.0, u = 15.0",
+      "expected_results": "v = 30.0, m = 2.0, isReal = true, reciprocal invariant: 1/30 + 1/15 == 1/10, conjugate foci: imageDistance(10, 30) == 15",
+      "actual_results": "v = 30.0, m = 2.0, isReal = true; passed in testOrdinaryInputFixture"
+    },
+    {
+      "name": "Property Test (100 bounded valid cases with seed 42L)",
+      "precondition_lines": "ThinLens.java:37-41, 58-62, 72",
+      "literal_inputs": "100 bounded pairs in [-50, 50] with fixed Random(42L)",
+      "expected_results": "All 100 cases satisfy: (1) 1/v + 1/u == 1/f, (2) imageDistance(f, v) == u, (3) m * u == v, (4) isRealImage(v) == (v > 0)",
+      "actual_results": "100/100 cases satisfied all invariants; passed in testPropertyThinLensInvariantsOver100BoundedCases"
+    },
+    {
+      "name": "Boundary Exception (Zero focal length)",
+      "precondition_lines": "ThinLens.java:37-39",
+      "literal_inputs": "f = 0.0, u = 10.0",
+      "expected_results": "IllegalArgumentException('Focal length and object distance must be non-zero.')",
+      "actual_results": "IllegalArgumentException thrown with expected message; passed in testZeroFocalLengthThrowsIllegalArgumentException"
+    },
+    {
+      "name": "Boundary Exception (Zero object distance)",
+      "precondition_lines": "ThinLens.java:37-39, 58-60",
+      "literal_inputs": "f = 10.0, u = 0.0",
+      "expected_results": "IllegalArgumentException in imageDistance and magnification",
+      "actual_results": "IllegalArgumentException thrown with expected messages; passed in testZeroObjectDistanceThrowsIllegalArgumentException"
+    },
+    {
+      "name": "Virtual Image Diverging Lens Boundary",
+      "precondition_lines": "ThinLens.java:41, 72",
+      "literal_inputs": "f = -10.0, u = 20.0",
+      "expected_results": "v = -6.666667, isRealImage == false",
+      "actual_results": "v = -6.666667, isRealImage == false; passed in testVirtualImageFormation"
+    }
+  ]
+}
