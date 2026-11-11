@@ -1,0 +1,7 @@
+[R45-T018] failure-odd-degree | input={0=[1], 1=[0]} | expected=hasCircuit=false,circuit=[] | actual=hasCircuit=false,circuit=[]
+[R45-T018] post-failure-valid-triangle | input={0=[1,2], 1=[0,2], 2=[0,1]} | expected=[0, 1, 2, 0] | actual=[0, 1, 2, 0]
+[R45-T018] failure-disconnected-even | input=2 disjoint triangles {0,1,2} & {3,4,5} | expected=hasCircuit=false,circuit=[] | actual=hasCircuit=false,circuit=[]
+[R45-T018] post-disconnected-valid | input={0=[1,2], 1=[0,2], 2=[0,1]} | expected=[0, 1, 2, 0] | actual=[0, 1, 2, 0]
+[R45-T018] fallback-null-graph | input=graph=null | expected=[] | actual=[]
+[R45-T018] fallback-empty-graph | input=graph={} | expected=[] | actual=[]
+[R45-T018] smallest-isolated-vertex | input=graph={0=[]} | expected=[0] | actual=[0]
