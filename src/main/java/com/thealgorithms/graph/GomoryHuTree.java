@@ -16,6 +16,24 @@ public final class GomoryHuTree {
     private GomoryHuTree() {
     }
 
+    /**
+     * Constructs the Gomory–Hu cut tree for the given non-negative symmetric capacity matrix.
+     *
+     * <p>Preconditions and Failure Behavior:
+     * <ul>
+     *   <li>Throws {@link IllegalArgumentException} if {@code cap} is {@code null} or empty (0 rows).</li>
+     *   <li>Throws {@link IllegalArgumentException} if any row is {@code null} or matrix is non-square.</li>
+     *   <li>Throws {@link IllegalArgumentException} if any capacity entry {@code cap[i][j] < 0}.</li>
+     * </ul>
+     *
+     * <p>State Invariants:
+     * Caller-owned capacity arrays are never modified. An input validation failure leaves caller-owned
+     * state intact, and subsequent calls remain functional without residual state.
+     *
+     * @param cap non-negative symmetric capacity matrix of size {@code n x n}
+     * @return 2D array of size {@code 2 x n}, where {@code [0]} is the parent array and {@code [1]} is the weight array
+     * @throws IllegalArgumentException if matrix is null, empty, non-square, or has negative entries
+     */
     public static int[][] buildTree(int[][] cap) {
         validateCapacityMatrix(cap);
         final int n = cap.length;

@@ -1,7 +1,14 @@
 package com.thealgorithms.graph;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -128,5 +135,152 @@ class GomoryHuTreeTest {
             cur = parent[cur];
         }
         return ans == Integer.MAX_VALUE ? 0 : ans;
+    }
+
+    @Test
+    @DisplayName("Smallest valid input fixture (1x1 matrix, GomoryHuTree.java:40-42)")
+    void testSmallestValidInputFixture() {
+        // Precondition established at GomoryHuTree.java:73-86 and branched at GomoryHuTree.java:40 (n == 1)
+        int[][] cap = {{0}};
+        int[][] tree = GomoryHuTree.buildTree(cap);
+
+        assertNotNull(tree);
+        assertEquals(2, tree.length);
+        assertArrayEquals(new int[] {-1}, tree[0]);
+        assertArrayEquals(new int[] {0}, tree[1]);
+    }
+
+    @Test
+    @DisplayName("Ordinary valid input fixture (2x2 matrix, GomoryHuTree.java:38-51)")
+    void testOrdinaryInputFixture() {
+        // Precondition established at GomoryHuTree.java:73-86 (valid non-negative symmetric 2x2 matrix)
+        int[][] cap = {{0, 7}, {7, 0}};
+        int[][] tree = GomoryHuTree.buildTree(cap);
+
+        assertNotNull(tree);
+        assertEquals(2, tree.length);
+        assertArrayEquals(new int[] {-1, 0}, tree[0]);
+        assertArrayEquals(new int[] {0, 7}, tree[1]);
+    }
+
+    @Test
+    @DisplayName("Documented ordinary triangle input fixture (3x3 matrix, GomoryHuTree.java:38-51)")
+    void testDocumentedOrdinaryTriangleInputFixture() {
+        // Precondition established at GomoryHuTree.java:73-86 (valid 3x3 undirected triangle graph)
+        int[][] cap = {
+            {0, 3, 4},
+            {3, 0, 2},
+            {4, 2, 0}
+        };
+        int[][] tree = GomoryHuTree.buildTree(cap);
+
+        assertNotNull(tree);
+        assertEquals(2, tree.length);
+        assertArrayEquals(new int[] {-1, 0, 0}, tree[0]);
+        assertArrayEquals(new int[] {0, 5, 6}, tree[1]);
+    }
+
+    @Test
+    @DisplayName("Failure path: null capacity matrix throws IllegalArgumentException (GomoryHuTree.java:73-74)")
+    void testFailureNullCapacityMatrixThrowsIllegalArgumentException() {
+        // Precondition: cap == null checked at GomoryHuTree.java:73, thrown at line 74
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            GomoryHuTree.buildTree(null);
+        });
+        assertEquals("Capacity matrix must not be null or empty", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Failure path: empty capacity matrix throws IllegalArgumentException (GomoryHuTree.java:73-74)")
+    void testFailureEmptyCapacityMatrixThrowsIllegalArgumentException() {
+        // Precondition: cap.length == 0 checked at GomoryHuTree.java:73, thrown at line 74
+        int[][] emptyCap = new int[0][0];
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            GomoryHuTree.buildTree(emptyCap);
+        });
+        assertEquals("Capacity matrix must not be null or empty", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Failure path: null row in matrix throws IllegalArgumentException (GomoryHuTree.java:78-79)")
+    void testFailureNullRowThrowsIllegalArgumentException() {
+        // Precondition: cap[i] == null checked at GomoryHuTree.java:78, thrown at line 79
+        int[][] nullRowCap = new int[][] {null};
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            GomoryHuTree.buildTree(nullRowCap);
+        });
+        assertEquals("Capacity matrix must be square", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Failure path: non-square matrix throws IllegalArgumentException (GomoryHuTree.java:78-79)")
+    void testFailureNonSquareCapacityMatrixThrowsIllegalArgumentException() {
+        // Precondition: cap[i].length != n checked at GomoryHuTree.java:78, thrown at line 79
+        int[][] nonSquareCap = {{1, 2}};
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            GomoryHuTree.buildTree(nonSquareCap);
+        });
+        assertEquals("Capacity matrix must be square", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Failure path: negative capacity throws exception and preserves caller state with subsequent success (GomoryHuTree.java:82-83)")
+    void testFailureNegativeCapacityThrowsExceptionAndPreservesCallerStateWithSubsequentSuccess() {
+        // Precondition: cap[i][j] < 0 checked at GomoryHuTree.java:82, thrown at line 83
+        int[][] invalidMatrix = {{-1}};
+        int originalValue = invalidMatrix[0][0];
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            GomoryHuTree.buildTree(invalidMatrix);
+        });
+        assertEquals("Capacities must be non-negative", exception.getMessage());
+
+        // Verify caller-owned state remains unmodified
+        assertEquals(originalValue, invalidMatrix[0][0]);
+
+        // Verify subsequent valid call succeeds without side effects
+        int[][] ordinaryCap = {{0, 7}, {7, 0}};
+        int[][] tree = GomoryHuTree.buildTree(ordinaryCap);
+        assertArrayEquals(new int[] {-1, 0}, tree[0]);
+        assertArrayEquals(new int[] {0, 7}, tree[1]);
+    }
+
+    @Test
+    @DisplayName("Caller-owned state immutability across exceptions and successful runs")
+    void testCallerOwnedOrdinaryStateUnmutatedAcrossExceptionsAndExecutions() {
+        int[][] callerMatrix = {
+            {0, 3, 4},
+            {3, 0, 2},
+            {4, 2, 0}
+        };
+        int[][] snapshot = new int[][] {
+            Arrays.copyOf(callerMatrix[0], 3),
+            Arrays.copyOf(callerMatrix[1], 3),
+            Arrays.copyOf(callerMatrix[2], 3)
+        };
+
+        // Trigger failure with a negative capacity matrix
+        int[][] invalidMatrix = {{0, -5}, {-5, 0}};
+        assertThrows(IllegalArgumentException.class, () -> GomoryHuTree.buildTree(invalidMatrix));
+
+        // Call buildTree with valid matrix
+        int[][] tree = GomoryHuTree.buildTree(callerMatrix);
+        assertArrayEquals(new int[] {-1, 0, 0}, tree[0]);
+        assertArrayEquals(new int[] {0, 5, 6}, tree[1]);
+
+        // Assert caller matrix content is untouched
+        for (int i = 0; i < 3; i++) {
+            assertArrayEquals(snapshot[i], callerMatrix[i]);
+        }
+    }
+
+    @Test
+    @DisplayName("Verify GomoryHuTree private constructor via reflection")
+    void testPrivateConstructorContract() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        Constructor<GomoryHuTree> constructor = GomoryHuTree.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        GomoryHuTree instance = constructor.newInstance();
+        assertNotNull(instance);
     }
 }

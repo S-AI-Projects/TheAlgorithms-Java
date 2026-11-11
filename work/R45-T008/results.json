@@ -1,0 +1,108 @@
+{
+  "task_id": "R45-T008",
+  "target_class": "com.thealgorithms.graph.GomoryHuTree",
+  "target_source": "src/main/java/com/thealgorithms/graph/GomoryHuTree.java",
+  "test_class": "com.thealgorithms.graph.GomoryHuTreeTest",
+  "timestamp": "2026-11-11T11:19:58.079010",
+  "tool_versions": {
+    "python": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "maven": "Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)"
+  },
+  "native_command": "mvn test -Dtest=GomoryHuTreeTest",
+  "tests": {
+    "run": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checkstyle": {
+    "passed": true,
+    "exit_code": 0
+  },
+  "preconditions_checked": [
+    {
+      "precondition": "cap == null",
+      "source_line": "GomoryHuTree.java:73",
+      "throw_line": "GomoryHuTree.java:74",
+      "expected_exception": "IllegalArgumentException",
+      "expected_message": "Capacity matrix must not be null or empty"
+    },
+    {
+      "precondition": "cap.length == 0",
+      "source_line": "GomoryHuTree.java:73",
+      "throw_line": "GomoryHuTree.java:74",
+      "expected_exception": "IllegalArgumentException",
+      "expected_message": "Capacity matrix must not be null or empty"
+    },
+    {
+      "precondition": "cap[i] == null",
+      "source_line": "GomoryHuTree.java:78",
+      "throw_line": "GomoryHuTree.java:79",
+      "expected_exception": "IllegalArgumentException",
+      "expected_message": "Capacity matrix must be square"
+    },
+    {
+      "precondition": "cap[i].length != n",
+      "source_line": "GomoryHuTree.java:78",
+      "throw_line": "GomoryHuTree.java:79",
+      "expected_exception": "IllegalArgumentException",
+      "expected_message": "Capacity matrix must be square"
+    },
+    {
+      "precondition": "cap[i][j] < 0",
+      "source_line": "GomoryHuTree.java:82",
+      "throw_line": "GomoryHuTree.java:83",
+      "expected_exception": "IllegalArgumentException",
+      "expected_message": "Capacities must be non-negative"
+    },
+    {
+      "precondition": "n == 1",
+      "source_line": "GomoryHuTree.java:40",
+      "return_line": "GomoryHuTree.java:41",
+      "input": "[[0]]",
+      "expected_output": {
+        "parent": [
+          -1
+        ],
+        "weight": [
+          0
+        ]
+      }
+    },
+    {
+      "precondition": "Ordinary 2x2 symmetric matrix",
+      "source_line": "GomoryHuTree.java:38-51",
+      "input": "[[0, 7], [7, 0]]",
+      "expected_output": {
+        "parent": [
+          -1,
+          0
+        ],
+        "weight": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "precondition": "Ordinary 3x3 triangle matrix",
+      "source_line": "GomoryHuTree.java:38-51",
+      "input": "[[0, 3, 4], [3, 0, 2], [4, 2, 0]]",
+      "expected_output": {
+        "parent": [
+          -1,
+          0,
+          0
+        ],
+        "weight": [
+          0,
+          5,
+          6
+        ]
+      }
+    }
+  ],
+  "caller_state_preservation": true,
+  "subsequent_call_success": true
+}
