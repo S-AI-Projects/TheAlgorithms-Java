@@ -91,9 +91,8 @@ public final class Mandelbrot {
         // loop through the image-coordinates
         for (int imageX = 0; imageX < imageWidth; imageX++) {
             for (int imageY = 0; imageY < imageHeight; imageY++) {
-                // determine the figure-coordinates based on the image-coordinates
-                double figureX = figureCenterX + ((double) imageX / imageWidth - 0.5) * figureWidth;
-                double figureY = figureCenterY + ((double) imageY / imageHeight - 0.5) * figureHeight;
+                double figureX = pixelToFigureCoordinate(imageX, imageWidth, figureCenterX, figureWidth);
+                double figureY = pixelToFigureCoordinate(imageY, imageHeight, figureCenterY, figureHeight);
 
                 double distance = getDistance(figureX, figureY, maxStep);
 
@@ -103,6 +102,19 @@ public final class Mandelbrot {
         }
 
         return image;
+    }
+
+    /**
+     * Maps a pixel index along one image axis to its corresponding coordinate in figure space.
+     *
+     * @param pixelIndex Zero-based pixel index along the axis.
+     * @param imageSpan Total number of pixels along the axis.
+     * @param figureCenter Figure-space coordinate at the center of the axis.
+     * @param figureSpan Total width (or height) of the figure along the axis.
+     * @return The figure-space coordinate corresponding to {@code pixelIndex}.
+     */
+    private static double pixelToFigureCoordinate(int pixelIndex, int imageSpan, double figureCenter, double figureSpan) {
+        return figureCenter + ((double) pixelIndex / imageSpan - 0.5) * figureSpan;
     }
 
     /**
