@@ -14,6 +14,16 @@ import java.util.Set;
  * Each character must map to exactly one character, and no two characters can map to the same character.
  * </p>
  *
+ * <p>
+ * Representative example:
+ * <ul>
+ *   <li>{@code areIsomorphic("egg", "add")} returns {@code true} because there is a valid bijection
+ *       {@code 'e' -> 'a'} and {@code 'g' -> 'd'}, where character positions and multiplicities are preserved.</li>
+ *   <li>Conversely, {@code areIsomorphic("foo", "bar")} returns {@code false} because {@code 'o'} cannot map
+ *       simultaneously to both {@code 'a'} and {@code 'r'}.</li>
+ * </ul>
+ * </p>
+ *
  * @see <a href="https://en.wikipedia.org/wiki/Isomorphism_(computer_science)">Isomorphic Strings</a>
  */
 public final class Isomorphic {
