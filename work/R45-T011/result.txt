@@ -1,0 +1,3 @@
+command: mvn -B test -Dtest=ComplexNumberMultiplyContractTest -Dsurefire.failIfNoSpecifiedTests=false
+tests=5 failures/errors=0 skipped=0 comparisons=22 mvn_exit=0
+status=PASS

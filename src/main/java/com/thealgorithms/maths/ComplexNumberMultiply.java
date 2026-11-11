@@ -20,6 +20,22 @@ public final class ComplexNumberMultiply {
         return new int[] {real, imaginary};
     }
 
+    /**
+     * Multiplies two complex numbers formatted as {@code "a+bi"}.
+     *
+     * <p>Input contract: both {@code num1} and {@code num2} must be non-null strings matching
+     * {@code -?\d+\+-?\d+i} with integer components (for example {@code "0+0i"} or
+     * {@code "1+-2i"}); otherwise {@link IllegalArgumentException} is thrown.
+     *
+     * <p>Output contract: pure function returning {@code "<real>+<imaginary>i"} where
+     * {@code real = a*c - b*d} and {@code imaginary = a*d + b*c}, preserving negative signs
+     * directly (for example {@code "0+-2i"}).
+     *
+     * @param num1 first complex number in {@code "a+bi"} form
+     * @param num2 second complex number in {@code "a+bi"} form
+     * @return product formatted as {@code "real+imaginaryi"}
+     * @throws IllegalArgumentException if either input is null or does not match {@code -?\d+\+-?\d+i}
+     */
     public static String multiply(String num1, String num2) {
         int[] a = parse(num1);
         int[] b = parse(num2);
