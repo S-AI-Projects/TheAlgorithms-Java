@@ -1,0 +1,5 @@
+[R45-T014] smallest-failing-self-loop | input=v=1,edge=(0->0) | expected=bipartite=false,visited=[0] | actual=bipartite=false,visited=[0]
+[R45-T014] bipartite-even-cycle-plus-isolated | input=v=5,cycle=(0-1-2-3-0),isolated=4 | expected=bipartite=true,maxVisits=1 | actual=bipartite=true,visited=[0, 1, 2, 3, 4]
+[R45-T014] seeded-property-120 | input=seed=20261111,cases=120,v in [1..12] | expected=all_agree=true,maxVisits<=1 | actual=bipartite=59,nonBipartite=61,maxVisits<=1
+[R45-T014] fixture-directed-cycle-isolated-D | input=A(0)->B(1),B(1)->C(2),C(2)->A(0),isolated D(3) | expected=bipartite=false,visited=[0,1,2],D_visits=0 | actual=bipartite=false,visited=[0, 1, 2],D_visits=0
+[R45-T014] fixture-undirected-cycle-isolated-D | input=A(0)-B(1)-C(2)-A(0),isolated D(3) | expected=bipartite=false,visited=[0,1,2],D_visits=0 | actual=bipartite=false,visited=[0, 1, 2],D_visits=0

@@ -1,0 +1,54 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24447 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] argLine set to -javaagent:/Users/shyamlibakale/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.datastructures.graphs.BipartiteGraphDFSInvariantTest
+[R45-T014] smallest-failing-self-loop | input=v=1,edge=(0->0) | expected=bipartite=false,visited=[0] | actual=bipartite=false,visited=[0]
+[R45-T014] bipartite-even-cycle-plus-isolated | input=v=5,cycle=(0-1-2-3-0),isolated=4 | expected=bipartite=true,maxVisits=1 | actual=bipartite=true,visited=[0, 1, 2, 3, 4]
+[R45-T014] seeded-property-120 | input=seed=20261111,cases=120,v in [1..12] | expected=all_agree=true,maxVisits<=1 | actual=bipartite=59,nonBipartite=61,maxVisits<=1
+[R45-T014] fixture-directed-cycle-isolated-D | input=A(0)->B(1),B(1)->C(2),C(2)->A(0),isolated D(3) | expected=bipartite=false,visited=[0,1,2],D_visits=0 | actual=bipartite=false,visited=[0, 1, 2],D_visits=0
+[R45-T014] fixture-undirected-cycle-isolated-D | input=A(0)-B(1)-C(2)-A(0),isolated D(3) | expected=bipartite=false,visited=[0,1,2],D_visits=0 | actual=bipartite=false,visited=[0, 1, 2],D_visits=0
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in com.thealgorithms.datastructures.graphs.BipartiteGraphDFSInvariantTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.224 s
+[INFO] Finished at: 2026-11-11T17:34:11+05:30
+[INFO] ------------------------------------------------------------------------
