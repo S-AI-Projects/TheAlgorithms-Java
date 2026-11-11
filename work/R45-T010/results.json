@@ -1,0 +1,70 @@
+{
+  "task_id": "R45-T010",
+  "target_class": "com.thealgorithms.bitmanipulation.Xs3Conversion",
+  "target_source": "src/main/java/com/thealgorithms/bitmanipulation/Xs3Conversion.java",
+  "test_class": "com.thealgorithms.bitmanipulation.Xs3ConversionTest",
+  "timestamp": "2026-11-11T11:40:44.682056",
+  "tool_versions": {
+    "python": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "maven": "Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)"
+  },
+  "native_command": "mvn test -Dtest=Xs3ConversionTest",
+  "clean_tests": {
+    "run": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checkstyle": {
+    "passed": true,
+    "exit_code": 0
+  },
+  "preconditions_checked": [
+    {
+      "precondition": "Smallest valid zero fixture",
+      "source_line": "Xs3Conversion.java:39,64",
+      "inputs": "binary=0, xs3=0",
+      "expected": "binaryToXs3(0)=0x0, xs3ToBinary(0)=0"
+    },
+    {
+      "precondition": "Smallest positive single digit fixture",
+      "source_line": "Xs3Conversion.java:40,65",
+      "inputs": "binary=1, xs3=0x4",
+      "expected": "binaryToXs3(1)=0x4, xs3ToBinary(0x4)=1"
+    },
+    {
+      "precondition": "Ordinary documentation fixture",
+      "source_line": "Xs3Conversion.java:39-44,64-69",
+      "inputs": "binary=1234, xs3=0x4567",
+      "expected": "binaryToXs3(1234)=0x4567, xs3ToBinary(0x4567)=1234"
+    },
+    {
+      "precondition": "Ordinary two-digit fixture",
+      "source_line": "Xs3Conversion.java:39-44,64-69",
+      "inputs": "binary=25, xs3=0x58",
+      "expected": "binaryToXs3(25)=0x58, xs3ToBinary(0x58)=25"
+    }
+  ],
+  "mutation_experiments": [
+    {
+      "mutant_id": "mutant-nibble-shift",
+      "name": "Omission of 4-bit nibble scaling in binaryToXs3",
+      "target_line": "xs3 |= (digit << (shift * 4));",
+      "mutated_line": "xs3 |= (digit << shift);",
+      "rejected": true,
+      "failing_test": "testMutationResistanceNibbleShiftAlignment",
+      "exit_code": 1
+    },
+    {
+      "mutant_id": "mutant-multiplier-hex",
+      "name": "Hexadecimal scaling instead of decimal in xs3ToBinary",
+      "target_line": "multiplier *= 10;",
+      "mutated_line": "multiplier *= 16;",
+      "rejected": true,
+      "failing_test": "testMutationResistanceMultiplierAccumulation",
+      "exit_code": 1
+    }
+  ],
+  "all_mutants_rejected": true
+}
