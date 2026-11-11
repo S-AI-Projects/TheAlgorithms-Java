@@ -38,6 +38,14 @@ public final class HierholzerAlgorithm {
         this.graph = (graph == null) ? new HashMap<>() : graph;
     }
 
+    /**
+     * Checks whether the graph has an Eulerian circuit.
+     *
+     * <p>Returns {@code true} for an empty graph and {@code false} if any vertex has odd degree or
+     * if non-zero-degree vertices span multiple disconnected components.
+     *
+     * @return {@code true} if an Eulerian circuit exists, {@code false} otherwise
+     */
     public boolean hasEulerianCircuit() {
         if (graph.isEmpty()) {
             return true;
@@ -52,6 +60,16 @@ public final class HierholzerAlgorithm {
         return isCoherentlyConnected();
     }
 
+    /**
+     * Finds an Eulerian circuit in the graph without mutating the caller's adjacency lists.
+     *
+     * <p>Failure / absent-result paths: returns {@code Collections.emptyList()} when
+     * {@link #hasEulerianCircuit()} is {@code false} (odd-degree vertex or disconnected edges) or
+     * when the graph is empty ({@code null} or {@code {}}), and returns a single-element list when
+     * only isolated degree-0 vertices are present.
+     *
+     * @return vertex sequence forming an Eulerian circuit, or an empty list if none exists
+     */
     public List<Integer> findEulerianCircuit() {
         if (!hasEulerianCircuit()) {
             return Collections.emptyList();

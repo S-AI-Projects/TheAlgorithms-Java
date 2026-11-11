@@ -1,0 +1,3 @@
+command: mvn -B test -Dtest=HierholzerAlgorithmFailureTest -Dsurefire.failIfNoSpecifiedTests=false
+tests=3 failures/errors=0 skipped=0 records=7 mvn_exit=0
+status=PASS
