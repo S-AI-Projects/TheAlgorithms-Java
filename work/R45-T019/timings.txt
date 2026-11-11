@@ -1,0 +1,3 @@
+[R45-T019-TIMING] N=1000 | ops=3000 | median_ns=46083 | min_ns=45583 | max_ns=86167 | range_ns=40584 | median_ns_per_elem=46.08
+[R45-T019-TIMING] N=10000 | ops=30000 | median_ns=447333 | min_ns=113541 | max_ns=479292 | range_ns=365751 | median_ns_per_elem=44.73
+[R45-T019-TIMING] N=100000 | ops=300000 | median_ns=1108875 | min_ns=1104500 | max_ns=1221667 | range_ns=117167 | median_ns_per_elem=11.09

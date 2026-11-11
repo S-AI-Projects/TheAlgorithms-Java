@@ -20,6 +20,16 @@ package com.thealgorithms.datastructures.heaps;
  * methods to retrieve the key and additional information.
  * </p>
  *
+ * <p>
+ * Complexity: for {@code N} constructed and queried {@code HeapElement} instances, every
+ * constructor, {@link #getKey()}, and {@link #getInfo()} executes in {@code O(1)} worst-case
+ * time and space per element ({@code O(N)} total work across {@code N} elements, performing a
+ * constant number of field accesses per element); observed wall-clock per-element times may vary
+ * across {@code N} due to JVM JIT warmup and allocation/GC behavior rather than algorithmic
+ * work. {@link #toString()}, {@link #equals(Object)}, and {@link #hashCode()} add {@code O(1)}
+ * key work plus the cost of {@code additionalInfo}'s corresponding method.
+ * </p>
+ *
  * @author Nicolas Renard
  */
 public class HeapElement {

@@ -1,0 +1,3 @@
+command: mvn -B test -Dtest=HeapElementScalingTest -Dsurefire.failIfNoSpecifiedTests=false
+tests=2 failures/errors=0 skipped=0 comparisons=5 timings=3 mvn_exit=0
+status=PASS
