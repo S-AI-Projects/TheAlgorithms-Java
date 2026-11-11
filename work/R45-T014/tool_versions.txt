@@ -1,0 +1,14 @@
+java:
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)
+
+mvn:
+Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)
+Maven home: /opt/homebrew/Cellar/maven/3.10.0/libexec
+Java version: 27.0.1.0.3, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk/27.0.1.0.3/libexec/openjdk.jdk/Contents/Home
+Default locale: en_IN, platform encoding: UTF-8, time zone: Asia/Kolkata
+OS name: "mac os x", version: "27.0", arch: "aarch64", family: "mac"
+
+python:
+3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]

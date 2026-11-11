@@ -38,6 +38,10 @@ public final class BipartiteGraphDFS {
      * During DFS traversal, this method attempts to color each vertex in such a way
      * that no two adjacent vertices share the same color.
      *
+     * <p>Traversal invariant: every reachable vertex transitions from {@code -1} (uncolored) to
+     * {@code {0, 1}} before recursion and is never reset, so each reachable node is expanded at
+     * most once and cycles cannot cause an infinite walk.
+     *
      * @param v     Number of vertices in the graph
      * @param adj   Adjacency list of the graph where each index i contains a list of adjacent vertices
      * @param color Array to store the color assigned to each vertex (-1 indicates uncolored)
@@ -63,6 +67,10 @@ public final class BipartiteGraphDFS {
 
     /**
      * Method to check if the graph is bipartite.
+     *
+     * <p>Invariant: each reachable vertex is colored and expanded at most once across all
+     * components; on a non-bipartite component (such as an odd cycle), traversal terminates and
+     * returns {@code false} immediately without visiting later disconnected components.
      *
      * @param v   Number of vertices in the graph
      * @param adj Adjacency list of the graph
