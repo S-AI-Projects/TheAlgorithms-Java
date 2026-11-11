@@ -1,0 +1,5 @@
+[R45-T019] smallest-double-null | input=(0.0, null) | expected=0.0/null/0 | actual=0.0/null/0
+[R45-T019] ordinary-double-info | input=(5.0, "Info") | expected=5.0/Info/2283881 | actual=5.0/Info/2283881
+[R45-T019] scaling-n-1000 | input=N=1000,reps=5,seed=20261111 | expected=ops=3000,all_correct=true | actual=ops=3000,all_correct=true
+[R45-T019] scaling-n-10000 | input=N=10000,reps=5,seed=20261111 | expected=ops=30000,all_correct=true | actual=ops=30000,all_correct=true
+[R45-T019] scaling-n-100000 | input=N=100000,reps=5,seed=20261111 | expected=ops=300000,all_correct=true | actual=ops=300000,all_correct=true

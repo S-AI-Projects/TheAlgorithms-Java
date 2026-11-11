@@ -53,4 +53,19 @@ class HeapElementTest {
         assertEquals(element1.hashCode(), element2.hashCode()); // Same key and info
         assertNotEquals(element1.hashCode(), element3.hashCode()); // Different info
     }
+
+    @Test
+    void testSmallestAndOrdinaryContractAndHashCode() {
+        HeapElement smallest = new HeapElement(0.0, null);
+        assertEquals(0.0, smallest.getKey());
+        assertNull(smallest.getInfo());
+        assertEquals("Key: 0.0 - No additional info", smallest.toString());
+        assertEquals(0, smallest.hashCode());
+
+        HeapElement ordinary = new HeapElement(5.0, "Info");
+        assertEquals(5.0, ordinary.getKey());
+        assertEquals("Info", ordinary.getInfo());
+        assertEquals("Key: 5.0 - Info", ordinary.toString());
+        assertEquals(2283881, ordinary.hashCode());
+    }
 }
