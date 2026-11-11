@@ -1,0 +1,2 @@
+command: mvn -B test -Dtest=HowManyTimesRotatedDeterminismTest -Dsurefire.failIfNoSpecifiedTests=false
+tests=6 failures/errors=0 skipped=0 mvn_exit=0
