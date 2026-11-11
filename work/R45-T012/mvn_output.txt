@@ -1,0 +1,67 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24447 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] argLine set to -javaagent:/Users/shyamlibakale/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.datastructures.lists.TortoiseHareAlgoBoundaryTest
+[R45-T012] boundary-empty-middle [valid-boundary] | input=[] | expected=null | actual=null
+[R45-T012] boundary-empty-str [valid-boundary] | input=[] | expected=[] | actual=[]
+[R45-T012] smallest-single-middle [valid-boundary] | input=[7] | expected=7 | actual=7
+[R45-T012] smallest-single-str [valid-boundary] | input=[7] | expected=[7] | actual=[7]
+[R45-T012] b-00-empty [valid-boundary] | input=[] | expected=null / [] | actual=null / []
+[R45-T012] b-01-single [valid-boundary] | input=[42] | expected=42 / [42] | actual=42 / [42]
+[R45-T012] b-02-two-even [valid-boundary] | input=[1, 2] | expected=2 / [1, 2] | actual=2 / [1, 2]
+[R45-T012] b-03-three-odd [valid-boundary] | input=[1, 2, 3] | expected=2 / [1, 2, 3] | actual=2 / [1, 2, 3]
+[R45-T012] b-04-four-even [valid-interior] | input=[1, 2, 3, 4] | expected=3 / [1, 2, 3, 4] | actual=3 / [1, 2, 3, 4]
+[R45-T012] b-05-five-odd [valid-interior] | input=[1, 2, 3, 4, 5] | expected=3 / [1, 2, 3, 4, 5] | actual=3 / [1, 2, 3, 4, 5]
+[R45-T012] boundary-node-encapsulation [encapsulated-boundary] | input=Node(Object, Node) | expected=private=true,final=true | actual=private=true,final=true
+[R45-T012] boundary-single-null [valid-boundary] | input=[null] | expected=null / [null] | actual=null / [null]
+[R45-T012] boundary-mixed-null [valid-interior] | input=[a, null, c] | expected=null / [a, null, c] | actual=null / [a, null, c]
+[R45-T012] growth-step-1 [valid-interior] | input=[10] | expected=10 / [10] | actual=10 / [10]
+[R45-T012] growth-step-2 [valid-interior] | input=[10, 20] | expected=20 / [10, 20] | actual=20 / [10, 20]
+[R45-T012] growth-step-3 [valid-interior] | input=[10, 20, 30] | expected=20 / [10, 20, 30] | actual=20 / [10, 20, 30]
+[R45-T012] growth-step-4 [valid-interior] | input=[10, 20, 30, 40] | expected=30 / [10, 20, 30, 40] | actual=30 / [10, 20, 30, 40]
+[R45-T012] growth-step-5 [valid-interior] | input=[10, 20, 30, 40, 50] | expected=30 / [10, 20, 30, 40, 50] | actual=30 / [10, 20, 30, 40, 50]
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.thealgorithms.datastructures.lists.TortoiseHareAlgoBoundaryTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.696 s
+[INFO] Finished at: 2026-11-11T17:24:45+05:30
+[INFO] ------------------------------------------------------------------------
