@@ -1,0 +1,18 @@
+[R45-T012] boundary-empty-middle [valid-boundary] | input=[] | expected=null | actual=null
+[R45-T012] boundary-empty-str [valid-boundary] | input=[] | expected=[] | actual=[]
+[R45-T012] smallest-single-middle [valid-boundary] | input=[7] | expected=7 | actual=7
+[R45-T012] smallest-single-str [valid-boundary] | input=[7] | expected=[7] | actual=[7]
+[R45-T012] b-00-empty [valid-boundary] | input=[] | expected=null / [] | actual=null / []
+[R45-T012] b-01-single [valid-boundary] | input=[42] | expected=42 / [42] | actual=42 / [42]
+[R45-T012] b-02-two-even [valid-boundary] | input=[1, 2] | expected=2 / [1, 2] | actual=2 / [1, 2]
+[R45-T012] b-03-three-odd [valid-boundary] | input=[1, 2, 3] | expected=2 / [1, 2, 3] | actual=2 / [1, 2, 3]
+[R45-T012] b-04-four-even [valid-interior] | input=[1, 2, 3, 4] | expected=3 / [1, 2, 3, 4] | actual=3 / [1, 2, 3, 4]
+[R45-T012] b-05-five-odd [valid-interior] | input=[1, 2, 3, 4, 5] | expected=3 / [1, 2, 3, 4, 5] | actual=3 / [1, 2, 3, 4, 5]
+[R45-T012] boundary-node-encapsulation [encapsulated-boundary] | input=Node(Object, Node) | expected=private=true,final=true | actual=private=true,final=true
+[R45-T012] boundary-single-null [valid-boundary] | input=[null] | expected=null / [null] | actual=null / [null]
+[R45-T012] boundary-mixed-null [valid-interior] | input=[a, null, c] | expected=null / [a, null, c] | actual=null / [a, null, c]
+[R45-T012] growth-step-1 [valid-interior] | input=[10] | expected=10 / [10] | actual=10 / [10]
+[R45-T012] growth-step-2 [valid-interior] | input=[10, 20] | expected=20 / [10, 20] | actual=20 / [10, 20]
+[R45-T012] growth-step-3 [valid-interior] | input=[10, 20, 30] | expected=20 / [10, 20, 30] | actual=20 / [10, 20, 30]
+[R45-T012] growth-step-4 [valid-interior] | input=[10, 20, 30, 40] | expected=30 / [10, 20, 30, 40] | actual=30 / [10, 20, 30, 40]
+[R45-T012] growth-step-5 [valid-interior] | input=[10, 20, 30, 40, 50] | expected=30 / [10, 20, 30, 40, 50] | actual=30 / [10, 20, 30, 40, 50]
