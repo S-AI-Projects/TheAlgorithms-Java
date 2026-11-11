@@ -1,0 +1,9 @@
+[R45-T017] main-output-lines | input=AESEncryption.main() | expected=4 | actual=4
+[R45-T017] smallest-empty-cipher-len | input=plainText="" | expected=16 | actual=16
+[R45-T017] smallest-empty-decrypt | input=cipherLen=16 | expected="" | actual=""
+[R45-T017] smallest-single-char-len | input=plainText="A" | expected=17 | actual=17
+[R45-T017] smallest-single-char-decrypt | input=cipherLen=17 | expected=A | actual=A
+[R45-T017] ordinary-key-hex | input=16 zero bytes | expected=00000000000000000000000000000000 | actual=00000000000000000000000000000000
+[R45-T017] ordinary-plaintext-hex | input="Hello World" | expected=48656C6C6F20576F726C64 | actual=48656C6C6F20576F726C64
+[R45-T017] ordinary-cipher-len | input="Hello World" (11B + 16B tag) | expected=27 | actual=27
+[R45-T017] ordinary-decrypt | input=firstCipher (27B) | expected=Hello World | actual=Hello World

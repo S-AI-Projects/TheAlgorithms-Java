@@ -16,6 +16,24 @@ import javax.crypto.spec.GCMParameterSpec;
  * Java. Please note that secret key and encrypted text is unreadable binary and
  * hence in the following program we display it in hexadecimal format of the
  * underlying bytes.
+ *
+ * <p>Runnable worked example ({@link #main(String[])}):
+ * <pre>{@code
+ * SecretKey secKey = AESEncryption.getSecretEncryptionKey(); // 128-bit (16-byte / 32-hex-char) key
+ * byte[] cipherText = AESEncryption.encryptText("Hello World", secKey); // 11B + 16B GCM tag = 27B (54 hex chars)
+ * String decrypted = AESEncryption.decryptText(cipherText, secKey); // uses aesCipher.getIV() -> "Hello World"
+ * }</pre>
+ *
+ * <p>Decisive state transition: {@link #encryptText(String, SecretKey)} initializes the static
+ * {@code aesCipher} with {@code AES/GCM/NoPadding} and a fresh random 12-byte GCM IV, and
+ * {@link #decryptText(byte[], SecretKey)} reads {@code aesCipher.getIV()} with a 128-bit
+ * authentication tag to verify and recover the plaintext. Running {@code main} prints:
+ * <pre>{@code
+ * Original Text:Hello World
+ * AES Key (Hex Form):<32 uppercase hex chars>
+ * Encrypted Text (Hex Form):<54 uppercase hex chars>
+ * Decryption successful. Decrypted text matches original: true
+ * }</pre>
  */
 public final class AESEncryption {
     private AESEncryption() {
