@@ -1,0 +1,85 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24447 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] argLine set to -javaagent:/Users/shyamlibakale/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.scheduling.FairShareSchedulingReferenceTest
+[R45-T013] ordinary-alice | input=weights=[2, 3] | expected=5 | actual=5
+[R45-T013] ordinary-scheduler | input=alice:[2,3],bob:[5],totalResources=100 | expected={alice=50, bob=50} | actual={bob=50, alice=50}
+[R45-T013] smallest-zero | input=weights=[0] | expected=0 | actual=0
+[R45-T013] smallest-one | input=weights=[1] | expected=1 | actual=1
+[R45-T013] smallest-scheduler | input=u1:[1],totalResources=1 | expected={u1=1} | actual={u1=1}
+[R45-T013] w-01-empty | input=[] | expected=0 | actual=0
+[R45-T013] w-02-zero | input=[0] | expected=0 | actual=0
+[R45-T013] w-03-one | input=[1] | expected=1 | actual=1
+[R45-T013] w-04-two | input=[2] | expected=2 | actual=2
+[R45-T013] w-05-three | input=[3] | expected=3 | actual=3
+[R45-T013] w-06-five | input=[5] | expected=5 | actual=5
+[R45-T013] w-07-seven | input=[7] | expected=7 | actual=7
+[R45-T013] w-08-ten | input=[10] | expected=10 | actual=10
+[R45-T013] w-09-zero-zero | input=[0, 0] | expected=0 | actual=0
+[R45-T013] w-10-zero-one | input=[0, 1] | expected=1 | actual=1
+[R45-T013] w-11-one-zero | input=[1, 0] | expected=1 | actual=1
+[R45-T013] w-12-one-one | input=[1, 1] | expected=2 | actual=2
+[R45-T013] w-13-one-two | input=[1, 2] | expected=3 | actual=3
+[R45-T013] w-14-two-three | input=[2, 3] | expected=5 | actual=5
+[R45-T013] w-15-three-four | input=[3, 4] | expected=7 | actual=7
+[R45-T013] w-16-four-six | input=[4, 6] | expected=10 | actual=10
+[R45-T013] w-17-ones | input=[1, 1, 1] | expected=3 | actual=3
+[R45-T013] w-18-zero-two-three | input=[0, 2, 3] | expected=5 | actual=5
+[R45-T013] w-19-one-two-three | input=[1, 2, 3] | expected=6 | actual=6
+[R45-T013] w-20-two-two-five | input=[2, 2, 5] | expected=9 | actual=9
+[R45-T013] w-21-two-three-five | input=[2, 3, 5] | expected=10 | actual=10
+[R45-T013] w-22-asc-four | input=[1, 2, 3, 4] | expected=10 | actual=10
+[R45-T013] w-23-desc-four | input=[4, 3, 2, 1] | expected=10 | actual=10
+[R45-T013] w-24-zeros-fives | input=[0, 5, 0, 5] | expected=10 | actual=10
+[R45-T013] alloc-01-single | input={a=[1]},totalResources=10 | expected={a=10} | actual={a=10}
+[R45-T013] alloc-02-equal | input={a=[1], b=[1]},totalResources=100 | expected={a=50, b=50} | actual={a=50, b=50}
+[R45-T013] alloc-03-split | input={a=[2, 3], b=[5]},totalResources=100 | expected={a=50, b=50} | actual={a=50, b=50}
+[R45-T013] alloc-04-zero-user | input={a=[0], b=[4]},totalResources=20 | expected={a=0, b=20} | actual={a=0, b=20}
+[R45-T013] alloc-05-three-users | input={a=[1, 1], b=[3], c=[5]},totalResources=100 | expected={a=20, b=30, c=50} | actual={a=20, b=30, c=50}
+[R45-T013] alloc-06-floor | input={a=[1], b=[2], c=[3]},totalResources=10 | expected={a=1, b=3, c=5} | actual={a=1, b=3, c=5}
+[R45-T013] equivalent-state | input=grouped([2,3],[5]) vs combined([5],[5]) | expected={bob=50, alice=50} | actual={bob=50, alice=50}
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.thealgorithms.scheduling.FairShareSchedulingReferenceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/shyamlibakale/TheAlgorithms-Java/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.093 s
+[INFO] Finished at: 2026-11-11T16:16:16+05:30
+[INFO] ------------------------------------------------------------------------

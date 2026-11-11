@@ -26,6 +26,16 @@ public final class FairShareScheduling {
             this.totalWeight = 0;
         }
 
+        /**
+         * Adds a task weight to this user's accumulated {@code totalWeight}.
+         *
+         * <p>Representative result: starting from {@code totalWeight = 0}, calling
+         * {@code addWeight(2)} and {@code addWeight(3)} sets {@code totalWeight = 5}.
+         * With a second user whose {@code totalWeight = 5} and {@code totalResources = 100},
+         * {@link FairShareScheduling#allocateResources(int)} assigns {@code 50} to each user.
+         *
+         * @param weight the weight of the task to accumulate
+         */
         void addWeight(int weight) {
             this.totalWeight += weight;
         }
