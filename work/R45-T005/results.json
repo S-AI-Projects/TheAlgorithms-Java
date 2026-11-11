@@ -1,0 +1,54 @@
+{
+  "task": "R45-T005",
+  "target_file": "src/main/java/com/thealgorithms/searches/DepthFirstSearch.java",
+  "test_file": "src/test/java/com/thealgorithms/searches/DepthFirstSearchTest.java",
+  "tool_versions": {
+    "python": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "maven": "Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)"
+  },
+  "actual_command": "mvn test -Dtest=DepthFirstSearchTest",
+  "nonzero_test_count": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "SUCCESS",
+  "external_dependencies": "None (pure deterministic in-memory traversal algorithm; no time, network, filesystem, or UI dependencies)",
+  "fixtures": [
+    {
+      "name": "Smallest Valid Input (Null Node)",
+      "precondition_lines": "DepthFirstSearch.java:41-43 (if node == null return Optional.empty())",
+      "literal_inputs": "node = null, value = 42",
+      "expected_results": "Optional.empty(), visited list remains empty []",
+      "actual_results": "Optional.empty() returned, visited is empty; passed in testSmallestValidInputNullNodeFixture"
+    },
+    {
+      "name": "Ordinary Input (Preorder Tree Search)",
+      "precondition_lines": "DepthFirstSearch.java:41-43, 44, 45, 49",
+      "literal_inputs": "Root 1 (children 2, 3, 4; 2 has 5, 6), target = 4",
+      "expected_results": "Optional.of(node4), visited = [1, 2, 5, 6, 3, 4]",
+      "actual_results": "Node 4 found, visited matched [1, 2, 5, 6, 3, 4]; passed in testOrdinaryInputWorkflowFixture"
+    },
+    {
+      "name": "Repeatability in Fresh Isolated States",
+      "precondition_lines": "DepthFirstSearch.java:33-35 (fresh instance constructor), 41-49",
+      "literal_inputs": "Two distinct fresh instances executing fixture (root, 4)",
+      "expected_results": "Both instances produce strictly identical search results and identical visited sequences",
+      "actual_results": "Outcome 1 == Outcome 2, Visited 1 == Visited 2; passed in testRepeatabilityAndStateIsolation"
+    },
+    {
+      "name": "Sequential Run Input Isolation",
+      "precondition_lines": "DepthFirstSearch.java:41-49, 56-58 (clearVisited seam)",
+      "literal_inputs": "Instance runs target 1 first, then runs fixture (root, 4)",
+      "expected_results": "Earlier run does not alter subsequent search result for target 4; clearVisited resets accumulator",
+      "actual_results": "Result for target 4 is identical to fresh isolated runs; passed in testRepeatabilityAndStateIsolation"
+    },
+    {
+      "name": "Dependency Injection Seam",
+      "precondition_lines": "DepthFirstSearch.java:37-39 (custom constructor dependency seam)",
+      "literal_inputs": "new DepthFirstSearch<>(customSinkList), search target 2",
+      "expected_results": "Node 2 found, visited recorded directly in injected list sink [1, 2]",
+      "actual_results": "Node 2 found, customSink == [1, 2]; passed in testDependencyInjectionSeam"
+    }
+  ]
+}
