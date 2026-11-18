@@ -1,0 +1,10 @@
+# R45-T036 StrandSort Focused Refactoring Comparisons
+# Source: src/main/java/com/thealgorithms/sorts/StrandSort.java
+# Extracted responsibility: extractStrand(List<T>) isolates pulling the next non-decreasing strand from the remaining unsorted list.
+CASE|smallest_empty|input=[]|expected=[]|actual=[]
+CASE|smallest_single|input=[1]|expected=[1]|actual=[1]
+CASE|mixed|input=[3, 1, 2]|expected=[1, 2, 3]|actual=[1, 2, 3]
+CASE|duplicates|input=[2, 2, 1]|expected=[1, 2, 2]|actual=[1, 2, 2]
+CASE|already_ordered|input=[1, 2, 3]|expected=[1, 2, 3]|actual=[1, 2, 3]
+CASE|reversed|input=[3, 2, 1]|expected=[1, 2, 3]|actual=[1, 2, 3]
+CASE|list_overload|input=[3, 1, 2]|expected=[1, 2, 3]|actual=[1, 2, 3]

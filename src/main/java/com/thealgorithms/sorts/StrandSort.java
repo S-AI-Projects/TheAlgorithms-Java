@@ -37,18 +37,31 @@ public final class StrandSort implements SortAlgorithm {
 
         List<T> result = new ArrayList<>();
         while (!list.isEmpty()) {
-            final List<T> sorted = new ArrayList<>();
-            sorted.add(list.removeFirst());
-            for (int i = 0; i < list.size();) {
-                if (sorted.getLast().compareTo(list.get(i)) <= 0) {
-                    sorted.add(list.remove(i));
-                } else {
-                    i++;
-                }
-            }
-            result = merge(result, sorted);
+            List<T> strand = extractStrand(list);
+            result = merge(result, strand);
         }
         return result;
+    }
+
+    /**
+     * Extracts the next non-decreasing subsequence (strand) from the remaining unsorted list,
+     * removing each selected element from {@code unsorted}.
+     *
+     * @param <T> The type of elements to be sorted, must be Comparable.
+     * @param unsorted The remaining unsorted elements (must be non-empty).
+     * @return A non-decreasing strand extracted in a single pass.
+     */
+    private static <T extends Comparable<? super T>> List<T> extractStrand(List<T> unsorted) {
+        final List<T> strand = new ArrayList<>();
+        strand.add(unsorted.removeFirst());
+        for (int i = 0; i < unsorted.size();) {
+            if (strand.getLast().compareTo(unsorted.get(i)) <= 0) {
+                strand.add(unsorted.remove(i));
+            } else {
+                i++;
+            }
+        }
+        return strand;
     }
 
     /**
