@@ -14,11 +14,24 @@ public final class Combination {
     }
 
     /**
-     * Find all combinations of given array using backtracking
-     * @param arr the array.
-     * @param n length of combination
-     * @param <T> the type of elements in the array.
-     * @return a list of all combinations of length n. If n == 0, return null.
+     * Finds all combinations of length {@code n} from the given array using backtracking.
+     *
+     * <p>Contract and invariants:
+     * <ul>
+     *   <li>Preconditions: {@code n >= 0} (throws {@link IllegalArgumentException} if {@code n < 0});
+     *       for {@code n > 0}, {@code arr} must be non-null with mutually {@link Comparable} non-null elements.</li>
+     *   <li>When {@code n == 0} or {@code n > arr.length}, returns an empty list.</li>
+     *   <li>For {@code arr} with {@code m} distinct elements and {@code 1 <= n <= m}, returns exactly
+     *       {@code C(m, n)} unique {@link TreeSet} combinations of size {@code n} in lexicographical order,
+     *       each containing elements strictly from {@code arr}.</li>
+     *   <li>Input immutability: {@code arr} is cloned before sorting and is never mutated; fresh equivalent
+     *       (even reordered) arrays of the same distinct elements yield identical results.</li>
+     * </ul>
+     *
+     * @param arr the input array
+     * @param n length of each combination ({@code n >= 0})
+     * @param <T> the element type
+     * @return a list of all combinations of length {@code n}, or an empty list if {@code n == 0} or {@code n > arr.length}
      */
     public static <T> List<TreeSet<T>> combination(T[] arr, int n) {
         if (n < 0) {

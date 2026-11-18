@@ -1,0 +1,22 @@
+# Temporary invariant-break check (removed arr.clone() so Arrays.sort mutates caller array)
+mutant_exit=1
+task=R45-T034
+status=FAIL
+command=mvn -B test -Dtest=com.thealgorithms.backtracking.CombinationTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=1
+tests_run=7
+failures=2
+errors=0
+skipped=0
+comparison_records=0
+
+# Key failure lines:
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.061 s <<< FAILURE! -- in com.thealgorithms.backtracking.CombinationTest
+[ERROR] com.thealgorithms.backtracking.CombinationTest.testFixtureSmallestAndOrdinaryInvariants -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Input array must not be mutated ==> array contents differ at index [0], expected: <3> but was: <1>
+[ERROR] com.thealgorithms.backtracking.CombinationTest.testSeededPropertyInvariants -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Case 0: input array mutated ==> array contents differ at index [0], expected: <18> but was: <0>
+[ERROR]   CombinationTest.testFixtureSmallestAndOrdinaryInvariants:110 Input array must not be mutated ==> array contents differ at index [0], expected: <3> but was: <1>
+[ERROR]   CombinationTest.testSeededPropertyInvariants:148 Case 0: input array mutated ==> array contents differ at index [0], expected: <18> but was: <0>
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] BUILD FAILURE
