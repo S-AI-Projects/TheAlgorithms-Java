@@ -1,0 +1,9 @@
+task=R45-T033
+status=PASS
+command=mvn -B test -Dtest=com.thealgorithms.matrix.LUDecompositionTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=0
+tests_run=2
+failures=0
+errors=0
+skipped=0
+comparison_records=24

@@ -1,0 +1,74 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24540 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] argLine set to -javaagent:/Users/yuraj/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 796 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.matrix.LUDecompositionTest
+CASE|1x1_positive|n=1,A=[[5.0]]|expectedL=[[1.0]],expectedU=[[5.0]]|actualL=[[1.0]],actualU=[[5.0]]
+CASE|1x1_negative|n=1,A=[[-3.5]]|expectedL=[[1.0]],expectedU=[[-3.5]]|actualL=[[1.0]],actualU=[[-3.5]]
+CASE|1x1_zero|n=1,A=[[0.0]]|expectedL=[[1.0]],expectedU=[[0.0]]|actualL=[[1.0]],actualU=[[0.0]]
+CASE|2x2_identity|n=2,A=[[1.0, 0.0], [0.0, 1.0]]|expectedL=[[1.0, 0.0], [0.0, 1.0]],expectedU=[[1.0, 0.0], [0.0, 1.0]]|actualL=[[1.0, 0.0], [0.0, 1.0]],actualU=[[1.0, 0.0], [0.0, 1.0]]
+CASE|2x2_zero_upper|n=2,A=[[2.0, 0.0], [4.0, 3.0]]|expectedL=[[1.0, 0.0], [2.0, 1.0]],expectedU=[[2.0, 0.0], [0.0, 3.0]]|actualL=[[1.0, 0.0], [2.0, 1.0]],actualU=[[2.0, 0.0], [0.0, 3.0]]
+CASE|2x2_zero_lower|n=2,A=[[1.0, 2.0], [0.0, 4.0]]|expectedL=[[1.0, 0.0], [0.0, 1.0]],expectedU=[[1.0, 2.0], [0.0, 4.0]]|actualL=[[1.0, 0.0], [0.0, 1.0]],actualU=[[1.0, 2.0], [0.0, 4.0]]
+CASE|2x2_standard_1234|n=2,A=[[1.0, 2.0], [3.0, 4.0]]|expectedL=[[1.0, 0.0], [3.0, 1.0]],expectedU=[[1.0, 2.0], [0.0, -2.0]]|actualL=[[1.0, 0.0], [3.0, 1.0]],actualU=[[1.0, 2.0], [0.0, -2.0]]
+CASE|2x2_representative_4363|n=2,A=[[4.0, 3.0], [6.0, 3.0]]|expectedL=[[1.0, 0.0], [1.5, 1.0]],expectedU=[[4.0, 3.0], [0.0, -1.5]]|actualL=[[1.0, 0.0], [1.5, 1.0]],actualU=[[4.0, 3.0], [0.0, -1.5]]
+CASE|2x2_negative_pivots|n=2,A=[[-2.0, 5.0], [4.0, -14.0]]|expectedL=[[1.0, 0.0], [-2.0, 1.0]],expectedU=[[-2.0, 5.0], [0.0, -4.0]]|actualL=[[1.0, 0.0], [-2.0, 1.0]],actualU=[[-2.0, 5.0], [0.0, -4.0]]
+CASE|2x2_fractional|n=2,A=[[2.0, -1.0], [1.0, 2.0]]|expectedL=[[1.0, 0.0], [0.5, 1.0]],expectedU=[[2.0, -1.0], [0.0, 2.5]]|actualL=[[1.0, 0.0], [0.5, 1.0]],actualU=[[2.0, -1.0], [0.0, 2.5]]
+CASE|2x2_zero_final_pivot|n=2,A=[[3.0, 1.0], [6.0, 2.0]]|expectedL=[[1.0, 0.0], [2.0, 1.0]],expectedU=[[3.0, 1.0], [0.0, 0.0]]|actualL=[[1.0, 0.0], [2.0, 1.0]],actualU=[[3.0, 1.0], [0.0, 0.0]]
+CASE|2x2_diagonal_neg|n=2,A=[[-7.0, 0.0], [0.0, 9.0]]|expectedL=[[1.0, 0.0], [0.0, 1.0]],expectedU=[[-7.0, 0.0], [0.0, 9.0]]|actualL=[[1.0, 0.0], [-0.0, 1.0]],actualU=[[-7.0, 0.0], [0.0, 9.0]]
+CASE|3x3_identity|n=3,A=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]|expectedL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],expectedU=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]|actualL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],actualU=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
+CASE|3x3_zero_containing|n=3,A=[[2.0, 1.0, 0.0], [0.0, 3.0, 1.0], [4.0, 2.0, 5.0]]|expectedL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [2.0, 0.0, 1.0]],expectedU=[[2.0, 1.0, 0.0], [0.0, 3.0, 1.0], [0.0, 0.0, 5.0]]|actualL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [2.0, 0.0, 1.0]],actualU=[[2.0, 1.0, 0.0], [0.0, 3.0, 1.0], [0.0, 0.0, 5.0]]
+CASE|3x3_dense_int|n=3,A=[[1.0, 2.0, -1.0], [2.0, 7.0, 0.0], [-1.0, 7.0, 11.0]]|expectedL=[[1.0, 0.0, 0.0], [2.0, 1.0, 0.0], [-1.0, 3.0, 1.0]],expectedU=[[1.0, 2.0, -1.0], [0.0, 3.0, 2.0], [0.0, 0.0, 4.0]]|actualL=[[1.0, 0.0, 0.0], [2.0, 1.0, 0.0], [-1.0, 3.0, 1.0]],actualU=[[1.0, 2.0, -1.0], [0.0, 3.0, 2.0], [0.0, 0.0, 4.0]]
+CASE|3x3_upper_only|n=3,A=[[4.0, -2.0, 1.0], [0.0, 5.0, 3.0], [0.0, 0.0, -2.0]]|expectedL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],expectedU=[[4.0, -2.0, 1.0], [0.0, 5.0, 3.0], [0.0, 0.0, -2.0]]|actualL=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]],actualU=[[4.0, -2.0, 1.0], [0.0, 5.0, 3.0], [0.0, 0.0, -2.0]]
+CASE|3x3_lower_unit_diag|n=3,A=[[1.0, 0.0, 0.0], [-1.0, 1.0, 0.0], [2.0, -3.0, 1.0]]|expectedL=[[1.0, 0.0, 0.0], [-1.0, 1.0, 0.0], [2.0, -3.0, 1.0]],expectedU=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]|actualL=[[1.0, 0.0, 0.0], [-1.0, 1.0, 0.0], [2.0, -3.0, 1.0]],actualU=[[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
+CASE|3x3_fractional|n=3,A=[[4.0, 2.0, 0.0], [2.0, 3.0, -2.0], [-1.0, 2.5, 0.0]]|expectedL=[[1.0, 0.0, 0.0], [0.5, 1.0, 0.0], [-0.25, 1.5, 1.0]],expectedU=[[4.0, 2.0, 0.0], [0.0, 2.0, -2.0], [0.0, 0.0, 3.0]]|actualL=[[1.0, 0.0, 0.0], [0.5, 1.0, 0.0], [-0.25, 1.5, 1.0]],actualU=[[4.0, 2.0, 0.0], [0.0, 2.0, -2.0], [0.0, 0.0, 3.0]]
+CASE|3x3_negative_entries|n=3,A=[[-3.0, 1.0, -2.0], [6.0, -4.0, 8.0], [-3.0, 3.0, -11.0]]|expectedL=[[1.0, 0.0, 0.0], [-2.0, 1.0, 0.0], [1.0, -1.0, 1.0]],expectedU=[[-3.0, 1.0, -2.0], [0.0, -2.0, 4.0], [0.0, 0.0, -5.0]]|actualL=[[1.0, 0.0, 0.0], [-2.0, 1.0, 0.0], [1.0, -1.0, 1.0]],actualU=[[-3.0, 1.0, -2.0], [0.0, -2.0, 4.0], [0.0, 0.0, -5.0]]
+CASE|3x3_sparse_zeros|n=3,A=[[2.0, 0.0, 1.0], [6.0, 4.0, 3.0], [0.0, -8.0, 3.0]]|expectedL=[[1.0, 0.0, 0.0], [3.0, 1.0, 0.0], [0.0, -2.0, 1.0]],expectedU=[[2.0, 0.0, 1.0], [0.0, 4.0, 0.0], [0.0, 0.0, 3.0]]|actualL=[[1.0, 0.0, 0.0], [3.0, 1.0, 0.0], [0.0, -2.0, 1.0]],actualU=[[2.0, 0.0, 1.0], [0.0, 4.0, 0.0], [0.0, 0.0, 3.0]]
+CASE|4x4_diagonal_zero_off|n=4,A=[[2.0, 0.0, 0.0, 0.0], [0.0, -3.0, 0.0, 0.0], [0.0, 0.0, 5.0, 0.0], [0.0, 0.0, 0.0, 7.0]]|expectedL=[[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]],expectedU=[[2.0, 0.0, 0.0, 0.0], [0.0, -3.0, 0.0, 0.0], [0.0, 0.0, 5.0, 0.0], [0.0, 0.0, 0.0, 7.0]]|actualL=[[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, -0.0, 1.0, 0.0], [0.0, -0.0, 0.0, 1.0]],actualU=[[2.0, 0.0, 0.0, 0.0], [0.0, -3.0, 0.0, 0.0], [0.0, 0.0, 5.0, 0.0], [0.0, 0.0, 0.0, 7.0]]
+CASE|4x4_banded|n=4,A=[[2.0, 1.0, 0.0, 0.0], [2.0, 4.0, 1.0, 0.0], [0.0, 6.0, 6.0, 1.0], [0.0, 0.0, -4.0, 4.0]]|expectedL=[[1.0, 0.0, 0.0, 0.0], [1.0, 1.0, 0.0, 0.0], [0.0, 2.0, 1.0, 0.0], [0.0, 0.0, -1.0, 1.0]],expectedU=[[2.0, 1.0, 0.0, 0.0], [0.0, 3.0, 1.0, 0.0], [0.0, 0.0, 4.0, 1.0], [0.0, 0.0, 0.0, 5.0]]|actualL=[[1.0, 0.0, 0.0, 0.0], [1.0, 1.0, 0.0, 0.0], [0.0, 2.0, 1.0, 0.0], [0.0, 0.0, -1.0, 1.0]],actualU=[[2.0, 1.0, 0.0, 0.0], [0.0, 3.0, 1.0, 0.0], [0.0, 0.0, 4.0, 1.0], [0.0, 0.0, 0.0, 5.0]]
+CASE|4x4_dense_small|n=4,A=[[1.0, 2.0, 0.0, -1.0], [-1.0, 0.0, 1.0, 4.0], [2.0, 2.0, -4.0, -3.0], [1.0, 6.0, 5.0, 7.0]]|expectedL=[[1.0, 0.0, 0.0, 0.0], [-1.0, 1.0, 0.0, 0.0], [2.0, -1.0, 1.0, 0.0], [1.0, 2.0, -1.0, 1.0]],expectedU=[[1.0, 2.0, 0.0, -1.0], [0.0, 2.0, 1.0, 3.0], [0.0, 0.0, -3.0, 2.0], [0.0, 0.0, 0.0, 4.0]]|actualL=[[1.0, 0.0, 0.0, 0.0], [-1.0, 1.0, 0.0, 0.0], [2.0, -1.0, 1.0, 0.0], [1.0, 2.0, -1.0, 1.0]],actualU=[[1.0, 2.0, 0.0, -1.0], [0.0, 2.0, 1.0, 3.0], [0.0, 0.0, -3.0, 2.0], [0.0, 0.0, 0.0, 4.0]]
+CASE|4x4_fractional|n=4,A=[[4.0, 0.0, 2.0, 0.0], [2.0, 2.0, 1.0, 2.0], [0.0, -1.0, 2.0, -2.0], [1.0, 0.0, 1.5, 2.5]]|expectedL=[[1.0, 0.0, 0.0, 0.0], [0.5, 1.0, 0.0, 0.0], [0.0, -0.5, 1.0, 0.0], [0.25, 0.0, 0.5, 1.0]],expectedU=[[4.0, 0.0, 2.0, 0.0], [0.0, 2.0, 0.0, 2.0], [0.0, 0.0, 2.0, -1.0], [0.0, 0.0, 0.0, 3.0]]|actualL=[[1.0, 0.0, 0.0, 0.0], [0.5, 1.0, 0.0, 0.0], [0.0, -0.5, 1.0, 0.0], [0.25, 0.0, 0.5, 1.0]],actualU=[[4.0, 0.0, 2.0, 0.0], [0.0, 2.0, 0.0, 2.0], [0.0, 0.0, 2.0, -1.0], [0.0, 0.0, 0.0, 3.0]]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.thealgorithms.matrix.LUDecompositionTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[WARNING] Classes in bundle 'Java' do not match with execution data. For report generation the same class files must be used as at runtime.
+[WARNING] Execution data for class com/thealgorithms/matrix/matrixexponentiation/Fibonacci does not match.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.058 s
+[INFO] Finished at: 2026-11-18T22:26:06+05:30
+[INFO] ------------------------------------------------------------------------

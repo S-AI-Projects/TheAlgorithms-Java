@@ -31,10 +31,22 @@ public final class LUDecomposition {
     }
 
     /**
-     * Performs LU Decomposition on a square matrix a
+     * Performs Doolittle LU decomposition (without pivoting) on a square matrix {@code a}.
      *
-     * @param a input square matrix
-     * @return LU object containing l and u matrices
+     * <p>Requires a square {@code n x n} matrix whose leading principal minors are non-zero
+     * (so every pivot {@code u[i][i]} is non-zero). Rectangular matrices are not supported.
+     * Input {@code a} is not mutated.
+     *
+     * <p>Representative example:
+     * <pre>
+     * A = [[4, 3], [6, 3]]
+     * L = [[1, 0], [1.5, 1]]
+     * U = [[4, 3], [0, -1.5]]
+     * L * U = [[4, 3], [6, 3]] = A
+     * </pre>
+     *
+     * @param a input square matrix ({@code n x n})
+     * @return {@link LU} object containing unit lower triangular {@code l} and upper triangular {@code u}
      */
     public static LU decompose(double[][] a) {
         int n = a.length;
