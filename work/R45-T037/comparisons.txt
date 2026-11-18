@@ -1,0 +1,6 @@
+# R45-T037 HillCipher.encrypt Executable Documentation Comparisons
+# Source: src/main/java/com/thealgorithms/ciphers/HillCipher.java
+# Preconditions: pinned line 7 (non-null message sanitized to [A-Z]), lines 8-9 & 73-75 & 82 (n>=1 square keyMatrix, det % 26 != 0), line 21 ('X' padding), line 30 (mod 26)
+CASE|documented_worked_example|message='cat!',key=[[3,3],[2,5]]|expected='GEWX'|actual='GEWX'
+CASE|smallest_empty|message='',key=[[3]]|expected=''|actual=''
+CASE|smallest_single|message='B',key=[[3]]|expected='D'|actual='D'

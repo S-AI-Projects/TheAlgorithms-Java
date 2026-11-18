@@ -2,7 +2,37 @@ package com.thealgorithms.ciphers;
 
 public class HillCipher {
 
-    // Encrypts the message using the key matrix
+    /**
+     * Encrypts {@code message} using the Hill cipher with square key matrix {@code keyMatrix}.
+     *
+     * <p>Preconditions: {@code message != null}; {@code keyMatrix} is a square {@code n x n} matrix
+     * ({@code n >= 1}) with non-negative entries whose determinant is non-zero modulo 26
+     * (otherwise {@link IllegalArgumentException} is thrown). {@code keyMatrix} is not mutated.
+     *
+     * <p>Decisive state transitions:
+     * <ol>
+     *   <li>Sanitize {@code message} to uppercase ASCII letters {@code [A-Z]}.</li>
+     *   <li>Partition letters into blocks of length {@code n}, padding an incomplete final block with {@code 'X'} (23).</li>
+     *   <li>Map each block vector {@code m} via {@code (keyMatrix * m) mod 26} back to {@code 'A'..'Z'}.</li>
+     * </ol>
+     *
+     * <p>Runnable worked example:
+     * <pre>{@code
+     * import com.thealgorithms.ciphers.HillCipher;
+     *
+     * HillCipher cipher = new HillCipher();
+     * int[][] keyMatrix = {{3, 3}, {2, 5}}; // det = 9, 9 % 26 = 9 != 0
+     * // "cat!" -> "CAT" -> blocks "CA" ([2, 0]) and padded "TX" ([19, 23])
+     * // Block 1: [(3*2 + 3*0) % 26, (2*2 + 5*0) % 26] = [6, 4] -> "GE"
+     * // Block 2: [(3*19 + 3*23) % 26, (2*19 + 5*23) % 26] = [22, 23] -> "WX"
+     * String ciphertext = cipher.encrypt("cat!", keyMatrix); // "GEWX"
+     * }</pre>
+     *
+     * @param message plaintext string (non-letters are removed and letters uppercased)
+     * @param keyMatrix square {@code n x n} encryption key matrix with {@code det(keyMatrix) % 26 != 0}
+     * @return encrypted uppercase ciphertext string
+     * @throws IllegalArgumentException if {@code det(keyMatrix) % 26 == 0}
+     */
     public String encrypt(String message, int[][] keyMatrix) {
         message = message.toUpperCase().replaceAll("[^A-Z]", "");
         int matrixSize = keyMatrix.length;
