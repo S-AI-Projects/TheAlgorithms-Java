@@ -1,5 +1,12 @@
 package com.thealgorithms.maths;
 
+/**
+ * Recursively finds the minimum element in an {@code int[]} array using divide and conquer.
+ *
+ * <p>Purity and determinism: this utility holds no mutable state and has no external dependencies
+ * (no clock, randomness, I/O, or network access). Calls never mutate the input array and produce
+ * identical results across repeated invocations.
+ */
 public final class FindMinRecursion {
 
     private FindMinRecursion() {

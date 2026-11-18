@@ -1,0 +1,6 @@
+# R45-T035 FindMinRecursion Deterministic Repeatability Comparisons
+# Source: src/main/java/com/thealgorithms/maths/FindMinRecursion.java
+# External dependencies: none (pure stateless recursion using java.lang.Math.min)
+# Preconditions: pinned line 18 (array.length > 0), line 21 (low == high), lines 25-28 (0 <= low <= high < array.length), line 40 (full-range wrapper)
+CASE|ordinary_repeatability|input=[4, -2, 9, -7, 3],subrange=[0,2]|expected=run1:-7,run2:-7,run3:-7,subrange:-2|actual=run1:-7,run2:-7,run3:-7,subrange:-2
+CASE|smallest_repeatability|input=[7],intervening=[-100, 50, 0]|expected=run1:7,run2:7,other:-100,run3:7,range:7|actual=run1:7,run2:7,other:-100,run3:7,range:7
