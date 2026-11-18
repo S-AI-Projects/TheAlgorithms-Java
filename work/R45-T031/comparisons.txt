@@ -1,0 +1,7 @@
+# R45-T031 HopcroftKarp Contract Regression Comparisons
+# Source: src/main/java/com/thealgorithms/graph/HopcroftKarp.java
+# Preconditions: lines 33-34 (nLeft>=0, nRight>=0), lines 37-38 (initial -1), lines 69-70 (adj bounds), lines 96-102 (defensive clones)
+CASE|repeated_edges|nLeft=2,nRight=2,adj=[[0,0],[0,0]]|expected=1,[0, -1],[0, -1]|actual=1,[0, -1],[0, -1]
+CASE|mutation_isolation|nLeft=2,nRight=2,adj=[[0,1],[0]]|expected=first:2,second:0,adjUnchanged:true,clonesIsolated:true|actual=first:2,second:0,adjUnchanged:true,clonesIsolated:true
+CASE|ordinary_3x3|nLeft=3,nRight=3,adj=[[0,1],[0],[1,2]]|expected=3,[1, 0, 2],[1, 0, 2]|actual=3,[1, 0, 2],[1, 0, 2]
+CASE|smallest_0x0|nLeft=0,nRight=0,adj=[]|expected=0,[],[]|actual=0,[],[]

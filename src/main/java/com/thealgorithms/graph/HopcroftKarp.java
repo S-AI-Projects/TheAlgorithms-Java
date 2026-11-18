@@ -26,6 +26,23 @@ public class HopcroftKarp {
     private final int[] pairV;
     private final int[] dist;
 
+    /**
+     * Constructs a Hopcroft-Karp solver for a bipartite graph.
+     *
+     * <p>Contract:
+     * <ul>
+     *   <li>Preconditions: {@code nLeft >= 0}, {@code nRight >= 0}, {@code adj != null} with at least
+     *       {@code nLeft} non-null adjacency lists, and every right vertex index {@code v} in
+     *       {@code adj.get(u)} satisfies {@code 0 <= v < nRight}.</li>
+     *   <li>Initial state: all entries of {@code pairU} and {@code pairV} start at {@code -1} (unmatched).</li>
+     *   <li>Mutation: {@code adj} is only read and never mutated; {@link #maxMatching()} updates the
+     *       internal matching arrays and returns the number of newly matched edges.</li>
+     * </ul>
+     *
+     * @param nLeft number of vertices in the left partition ({@code [0, nLeft - 1]})
+     * @param nRight number of vertices in the right partition ({@code [0, nRight - 1]})
+     * @param adj adjacency list mapping each left vertex {@code u} to its incident right vertices
+     */
     public HopcroftKarp(int nLeft, int nRight, List<List<Integer>> adj) {
         this.nLeft = nLeft;
         this.adj = adj;
