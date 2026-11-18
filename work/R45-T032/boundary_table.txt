@@ -1,0 +1,9 @@
+# R45-T032 Supported Domain & Boundary Table
+# Source: src/main/java/com/thealgorithms/matrix/matrixexponentiation/Fibonacci.java
+| Partition | Inputs | Source Contract Citation | Expected Result |
+| --- | --- | --- | --- |
+| Valid base boundary | n = 0 | Pinned lines 20, 30-31 (if n == 0 return IDENTITY_MATRIX) | [[1,0],[0,1]], F_0 = 0 |
+| Valid recursive odd boundary | n = 1 | Pinned lines 19, 32-39 (n/2=0, n%2!=0 -> FIB_MATRIX * I) | [[1,1],[1,0]], F_1 = 1 |
+| Valid recursive even boundary | n = 2 | Pinned lines 33-36 (n%2==0 -> fib(1)^2) | [[2,1],[1,1]], F_2 = 1 |
+| Valid interior (odd/even) | n = 5, 10, 20 | Pinned lines 29-40 (binary matrix exponentiation) | F_5=5, F_10=55, F_20=6765 |
+| Unsupported / undefined | n < 0 | Pinned lines 29-40 define no negative-index guard or exception | Outside supported domain; no arbitrary guard imposed |

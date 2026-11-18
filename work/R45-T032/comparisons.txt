@@ -1,0 +1,7 @@
+# R45-T032 Fibonacci Matrix Exponentiation Boundary Comparisons
+CASE|boundary_one_odd|n=1|expected=[[1,1],[1,0]],F_n=1|actual=[[1,1],[1,0]],F_n=1
+CASE|boundary_two_even|n=2|expected=[[2,1],[1,1]],F_n=1|actual=[[2,1],[1,1]],F_n=1
+CASE|interior_twenty_even|n=20|expected=[[10946,6765],[6765,4181]],F_n=6765|actual=[[10946,6765],[6765,4181]],F_n=6765
+CASE|boundary_zero|n=0|expected=[[1,0],[0,1]],F_n=0|actual=[[1,0],[0,1]],F_n=0
+CASE|interior_five_odd|n=5|expected=[[8,5],[5,3]],F_n=5|actual=[[8,5],[5,3]],F_n=5
+CASE|interior_ten_even|n=10|expected=[[89,55],[55,34]],F_n=55|actual=[[89,55],[55,34]],F_n=55

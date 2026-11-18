@@ -1,0 +1,54 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24540 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] argLine set to -javaagent:/Users/yuraj/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.matrix.matrixexponentiation.FibonacciTest
+CASE|boundary_one_odd|n=1|expected=[[1,1],[1,0]],F_n=1|actual=[[1,1],[1,0]],F_n=1
+CASE|boundary_two_even|n=2|expected=[[2,1],[1,1]],F_n=1|actual=[[2,1],[1,1]],F_n=1
+CASE|interior_twenty_even|n=20|expected=[[10946,6765],[6765,4181]],F_n=6765|actual=[[10946,6765],[6765,4181]],F_n=6765
+CASE|boundary_zero|n=0|expected=[[1,0],[0,1]],F_n=0|actual=[[1,0],[0,1]],F_n=0
+CASE|interior_five_odd|n=5|expected=[[8,5],[5,3]],F_n=5|actual=[[8,5],[5,3]],F_n=5
+CASE|interior_ten_even|n=10|expected=[[89,55],[55,34]],F_n=55|actual=[[89,55],[55,34]],F_n=55
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s -- in com.thealgorithms.matrix.matrixexponentiation.FibonacciTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.117 s
+[INFO] Finished at: 2026-11-18T22:24:40+05:30
+[INFO] ------------------------------------------------------------------------

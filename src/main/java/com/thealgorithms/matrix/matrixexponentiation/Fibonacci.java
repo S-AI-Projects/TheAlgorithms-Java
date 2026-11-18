@@ -20,11 +20,23 @@ public final class Fibonacci {
     private static final BigDecimal[][] IDENTITY_MATRIX = {{ONE, ZERO}, {ZERO, ONE}};
 
     /**
-     * Calculates the fibonacci number using matrix exponentiaition technique
+     * Calculates the Fibonacci transformation matrix {@code {{1, 1}, {1, 0}}^n}
+     * using binary matrix exponentiation with zero-based indexing.
      *
-     * @param n The input n for which we have to determine the fibonacci number
-     * Outputs the nth * fibonacci number
-     * @return a 2 X 1 array as { {F_n+1}, {F_n} }
+     * <p>Supported domain and boundaries:
+     * <ul>
+     *   <li>Supported domain: non-negative integers {@code n >= 0}.</li>
+     *   <li>{@code n == 0}: base boundary returning the 2x2 identity matrix
+     *       {@code {{1, 0}, {0, 1}}} where {@code result[0][1] = result[1][0] = F_0 = 0}
+     *       and {@code result[0][0] = F_1 = 1}.</li>
+     *   <li>{@code n >= 1}: returns the 2x2 matrix
+     *       {@code {{F_{n+1}, F_n}, {F_n, F_{n-1}}}} where {@code F_0 = 0, F_1 = 1, F_2 = 1, F_5 = 5, F_10 = 55}.</li>
+     *   <li>{@code n < 0}: outside the supported domain; the implementation defines no guard or exception.</li>
+     * </ul>
+     *
+     * @param n non-negative zero-based Fibonacci index ({@code n >= 0})
+     * @return a 2x2 {@code BigDecimal} matrix {@code {{F_{n+1}, F_n}, {F_n, F_{n-1}}}}
+     *         (or the 2x2 identity matrix when {@code n == 0})
      */
     public static BigDecimal[][] fib(int n) {
         if (n == 0) {

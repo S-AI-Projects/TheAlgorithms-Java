@@ -1,0 +1,9 @@
+task=R45-T032
+status=PASS
+command=mvn -B test -Dtest=com.thealgorithms.matrix.matrixexponentiation.FibonacciTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=0
+tests_run=6
+failures=0
+errors=0
+skipped=0
+comparison_records=6
