@@ -1,0 +1,9 @@
+task=R45-T040
+status=PASS
+command=mvn -B test -Dtest=com.thealgorithms.others.BoyerMooreTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=0
+tests_run=11
+failures=0
+errors=0
+skipped=0
+comparison_records=6

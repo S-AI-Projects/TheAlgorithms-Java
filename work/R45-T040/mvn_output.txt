@@ -1,0 +1,59 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24540 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] argLine set to -javaagent:/Users/yuraj/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 796 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.others.BoyerMooreTest
+CASE|smallest_null|input=null|expected=Optional.empty|actual=Optional.empty
+CASE|smallest_empty|input=[]|expected=Optional.empty|actual=Optional.empty
+CASE|smallest_single|input=[7]|expected=Optional[7]|actual=Optional[7]
+CASE|minimal_tie|input=[1, 2]|expected=Optional.empty|actual=Optional.empty
+CASE|even_tie|input=[4, 5, 4, 5]|expected=Optional.empty|actual=Optional.empty
+CASE|ordinary_majority|input=[2, 1, 2, 3, 2]|expected=Optional[2]|actual=Optional[2]
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s -- in com.thealgorithms.others.BoyerMooreTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[WARNING] Classes in bundle 'Java' do not match with execution data. For report generation the same class files must be used as at runtime.
+[WARNING] Execution data for class com/thealgorithms/geometry/GrahamScan does not match.
+[WARNING] Execution data for class com/thealgorithms/matrix/matrixexponentiation/Fibonacci does not match.
+[WARNING] Execution data for class com/thealgorithms/backtracking/Combination does not match.
+[WARNING] Execution data for class com/thealgorithms/matrix/LUDecomposition does not match.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.384 s
+[INFO] Finished at: 2026-11-18T22:49:18+05:30
+[INFO] ------------------------------------------------------------------------

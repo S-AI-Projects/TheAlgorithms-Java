@@ -1,0 +1,9 @@
+# R45-T040 BoyerMoore Mutation-Resistant Regression Comparisons
+# Source: src/main/java/com/thealgorithms/others/BoyerMoore.java
+# Protected conditions: pinned line 23 (null/empty -> Optional.empty), lines 45-51 (findCandidate), line 79 (strict majority 2 * count > totalCount)
+CASE|smallest_null|input=null|expected=Optional.empty|actual=Optional.empty
+CASE|smallest_empty|input=[]|expected=Optional.empty|actual=Optional.empty
+CASE|smallest_single|input=[7]|expected=Optional[7]|actual=Optional[7]
+CASE|minimal_tie|input=[1, 2]|expected=Optional.empty|actual=Optional.empty
+CASE|even_tie|input=[4, 5, 4, 5]|expected=Optional.empty|actual=Optional.empty
+CASE|ordinary_majority|input=[2, 1, 2, 3, 2]|expected=Optional[2]|actual=Optional[2]

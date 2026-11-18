@@ -16,6 +16,15 @@ public final class BoyerMoore {
     /**
      * Finds the majority element in the given array if it exists.
      *
+     * <p>Protected conditions:
+     * <ul>
+     *   <li>{@code null} or empty input arrays return {@link Optional#empty()}.</li>
+     *   <li>A candidate is returned only when its verified count strictly exceeds {@code array.length / 2}
+     *       ({@code 2 * count > totalCount}); an exact {@code n / 2} tie returns {@link Optional#empty()}.</li>
+     *   <li>The input {@code array} is never mutated and repeated calls on fresh equivalent inputs
+     *       return identical results.</li>
+     * </ul>
+     *
      * @param array the input array
      * @return an Optional containing the majority element if it exists, otherwise an empty Optional
      */

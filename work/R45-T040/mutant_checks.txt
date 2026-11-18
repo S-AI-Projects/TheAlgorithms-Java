@@ -1,0 +1,43 @@
+# R45-T040 Mutant Detection Evidence (tested on temporary copies and reverted)
+
+## Mutant: strict_majority_boundary_line_79
+# Relaxed strict majority (> n/2) to >= n/2; fails semantically on [1, 2] returning Optional[2] instead of Optional.empty().
+mutant_exit=1
+task=R45-T040
+status=FAIL
+command=mvn -B test -Dtest=com.thealgorithms.others.BoyerMooreTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=1
+tests_run=11
+failures=2
+errors=0
+skipped=0
+comparison_records=0
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+## Mutant: missing_null_guard_line_23
+# Removed null guard; all pre-existing tests still pass, while testStrictMajorityBoundaryAndNullContractDetectsMutants catches NullPointerException on null.
+mutant_exit=1
+task=R45-T040
+status=FAIL
+command=mvn -B test -Dtest=com.thealgorithms.others.BoyerMooreTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=1
+tests_run=11
+failures=0
+errors=1
+skipped=0
+comparison_records=0
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
