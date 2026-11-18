@@ -1,0 +1,8 @@
+# R45-T038 BaconianCipher.encrypt Failure and Empty-Result Path Comparisons
+# Source: src/main/java/com/thealgorithms/ciphers/BaconianCipher.java
+# Branches: pinned line 42 (NPE on null; strip [^A-Z] -> '' for non-letters), lines 44-48 (0 iterations -> '')
+CASE|empty_string|input=''|expected=''|actual=''
+CASE|non_letter_only|input='123!@# '|expected=''|actual=''
+CASE|null_failure|input=null|expected=NullPointerException|actual=NullPointerException
+CASE|recovery_smallest|input='A'|expected='AAAAA'|actual='AAAAA'
+CASE|recovery_ordinary|input='Hello, World!'|expected='AABBBAABAAABABBABABBABBBABABBAABBBABAAABABABBAAABB'|actual='AABBBAABAAABABBABABBABBBABABBAABBBABAAABABABBAAABB'

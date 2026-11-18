@@ -34,8 +34,18 @@ public class BaconianCipher {
     /**
      * Encrypts the given plaintext using the Baconian cipher.
      *
+     * <p>Contract and empty/failure paths:
+     * <ul>
+     *   <li>Precondition: {@code plaintext} must be non-null (passing {@code null} throws
+     *       {@link NullPointerException} when normalizing).</li>
+     *   <li>Total non-null behavior (empty-result path): non-ASCII letters are stripped; if no
+     *       {@code [A-Z]} characters remain (for example {@code ""} or {@code "123!"}), the loop
+     *       executes zero times and {@code ""} is returned without throwing.</li>
+     *   <li>Letters {@code I} and {@code J} share the same 5-character code ({@code "ABAAB"}).</li>
+     * </ul>
+     *
      * @param plaintext The plaintext message to encrypt.
-     * @return The ciphertext as a binary (A/B) sequence.
+     * @return The ciphertext as a binary (A/B) sequence, or {@code ""} if no ASCII letters are present.
      */
     public String encrypt(String plaintext) {
         StringBuilder ciphertext = new StringBuilder();
