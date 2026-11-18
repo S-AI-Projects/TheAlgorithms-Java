@@ -1,0 +1,6 @@
+# R45-T039 GrahamScan Fixture & Correctness Comparisons
+# Source: src/main/java/com/thealgorithms/geometry/GrahamScan.java
+# Preconditions: pinned lines 24-25 (non-null points, length >= 1, sorted in place), Point.java line 23 (no 32-bit int overflow in orientation)
+CASE|smallest_single_point|n=1,points=[(0,0)]|expected=[(0, 0)]|actual=[(0, 0)]
+CASE|ordinary_triangle_with_interior|n=4,points=[(2,4),(2,1),(4,0),(0,0)]|expected=[(0, 0), (4, 0), (2, 4)]|actual=[(0, 0), (4, 0), (2, 4)]
+SCALING_VALIDATED|sizes=[2000, 8000, 32000]|total_runs=15|all_hulls_verified=true

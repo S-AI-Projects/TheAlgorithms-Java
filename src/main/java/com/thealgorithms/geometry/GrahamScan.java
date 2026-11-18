@@ -6,9 +6,22 @@ import java.util.Stack;
 
 /**
  * A Java program that computes the convex hull using the Graham Scan algorithm.
- * The time complexity is O(n) in the best case and O(n log(n)) in the worst case.
- * The space complexity is O(n).
- * This algorithm is applicable only to integral coordinates.
+ *
+ * <p>Complexity (where {@code n = points.length} is the number of input points):
+ * <ul>
+ *   <li>Theoretical worst-case time: {@code O(n log n)}, dominated by the two
+ *       {@link Arrays#sort} calls (coordinate sort and polar-angle sort); the subsequent
+ *       stack scan pushes and pops each point at most once in {@code O(n)} time.</li>
+ *   <li>Theoretical best-case time: {@code O(n)} when TimSort encounters already-ordered
+ *       input in both sorting passes.</li>
+ *   <li>Empirical scaling on random 2D integer point clouds grows slightly faster than linear
+ *       with {@code n}, consistent with {@code O(n log n)}.</li>
+ *   <li>Auxiliary space complexity: {@code O(n)} for the hull stack and sort buffers.</li>
+ * </ul>
+ *
+ * <p>Preconditions: {@code points} must be non-null with {@code points.length >= 1} and non-null
+ * integral-coordinate {@link Point} elements small enough to avoid 32-bit cross-product overflow
+ * in {@link Point#orientation(Point, Point, Point)}. The constructor sorts {@code points} in place.
  *
  * References:
  * https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/geometry/graham_scan_algorithm.cpp

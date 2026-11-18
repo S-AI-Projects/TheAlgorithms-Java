@@ -1,0 +1,74 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24540 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -----------------------< com.thealgorithms:Java >-----------------------
+[INFO] Building Java 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.16:prepare-agent (default) @ Java ---
+[INFO] argLine set to -javaagent:/Users/yuraj/.m2/repository/org/jacoco/org.jacoco.agent/0.8.16/org.jacoco.agent-0.8.16-runtime.jar=destfile=/Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ Java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 848 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ Java ---
+[INFO] skip non existing resourceDirectory /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ Java ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 797 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.6.0:test (default-test) @ Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.thealgorithms.geometry.GrahamScanTest
+CASE|smallest_single_point|n=1,points=[(0,0)]|expected=[(0, 0)]|actual=[(0, 0)]
+CASE|ordinary_triangle_with_interior|n=4,points=[(2,4),(2,1),(4,0),(0,0)]|expected=[(0, 0), (4, 0), (2, 4)]|actual=[(0, 0), (4, 0), (2, 4)]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s -- in com.thealgorithms.geometry.GrahamScanTest
+[INFO] Running com.thealgorithms.geometry.GrahamScanScalingTest
+TIMING|n=2000|rep=1|seed=147039|ns=3262583|hull_size=19|valid=true
+TIMING|n=2000|rep=2|seed=247039|ns=4201500|hull_size=17|valid=true
+TIMING|n=2000|rep=3|seed=347039|ns=2902667|hull_size=18|valid=true
+TIMING|n=2000|rep=4|seed=447039|ns=2810500|hull_size=26|valid=true
+TIMING|n=2000|rep=5|seed=547039|ns=1530625|hull_size=19|valid=true
+TIMING|n=8000|rep=1|seed=153039|ns=10781291|hull_size=25|valid=true
+TIMING|n=8000|rep=2|seed=253039|ns=7053917|hull_size=26|valid=true
+TIMING|n=8000|rep=3|seed=353039|ns=8290125|hull_size=22|valid=true
+TIMING|n=8000|rep=4|seed=453039|ns=6794792|hull_size=22|valid=true
+TIMING|n=8000|rep=5|seed=553039|ns=7067208|hull_size=20|valid=true
+TIMING|n=32000|rep=1|seed=177039|ns=24610417|hull_size=26|valid=true
+TIMING|n=32000|rep=2|seed=277039|ns=31431959|hull_size=26|valid=true
+TIMING|n=32000|rep=3|seed=377039|ns=39672625|hull_size=28|valid=true
+TIMING|n=32000|rep=4|seed=477039|ns=58306750|hull_size=27|valid=true
+TIMING|n=32000|rep=5|seed=577039|ns=32630291|hull_size=27|valid=true
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 s -- in com.thealgorithms.geometry.GrahamScanScalingTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.16:report (generate-code-coverage-report) @ Java ---
+[INFO] Loading execution data file /Users/yuraj/.gemini/antigravity/scratch/TheAlgorithms-Java/target/jacoco.exec
+[INFO] Analyzed bundle 'Java' with 1073 classes
+[WARNING] Classes in bundle 'Java' do not match with execution data. For report generation the same class files must be used as at runtime.
+[WARNING] Execution data for class com/thealgorithms/ciphers/BaconianCipher does not match.
+[WARNING] Execution data for class com/thealgorithms/maths/FindMinRecursion does not match.
+[WARNING] Execution data for class com/thealgorithms/matrix/matrixexponentiation/Fibonacci does not match.
+[WARNING] Execution data for class com/thealgorithms/ciphers/HillCipher does not match.
+[WARNING] Execution data for class com/thealgorithms/backtracking/Combination does not match.
+[WARNING] Execution data for class com/thealgorithms/matrix/LUDecomposition does not match.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.787 s
+[INFO] Finished at: 2026-11-18T22:47:25+05:30
+[INFO] ------------------------------------------------------------------------

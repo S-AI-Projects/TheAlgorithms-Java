@@ -1,0 +1,32 @@
+# R45-T039 GrahamScan Complexity Experiment Timings
+# Input size variable: n = points.length (2D integer coordinates in [-10000, 10000])
+# Protocol: JVM warmup (3 runs) + 5 repetitions per size with fixed seeds and fresh inputs;
+# timing wraps only new GrahamScan(points); correctness verified outside the timed interval.
+# No pass/fail threshold depends on wall-clock speed.
+
+| n | reps | median_ms | min_ms | max_ms | range_ms |
+| --- | --- | --- | --- | --- | --- |
+| 2000 | 5 | 2.903 | 1.531 | 4.202 | 2.671 |
+| 8000 | 5 | 7.067 | 6.795 | 10.781 | 3.986 |
+| 32000 | 5 | 32.630 | 24.610 | 58.307 | 33.696 |
+
+# Observed scaling ratios:
+# n=2000->8000 (4.0x size): median ratio = 2.43x
+# n=8000->32000 (4.0x size): median ratio = 4.62x
+
+# Raw samples:
+TIMING|n=2000|rep=1|seed=147039|ns=3262583|hull_size=19|valid=true
+TIMING|n=2000|rep=2|seed=247039|ns=4201500|hull_size=17|valid=true
+TIMING|n=2000|rep=3|seed=347039|ns=2902667|hull_size=18|valid=true
+TIMING|n=2000|rep=4|seed=447039|ns=2810500|hull_size=26|valid=true
+TIMING|n=2000|rep=5|seed=547039|ns=1530625|hull_size=19|valid=true
+TIMING|n=8000|rep=1|seed=153039|ns=10781291|hull_size=25|valid=true
+TIMING|n=8000|rep=2|seed=253039|ns=7053917|hull_size=26|valid=true
+TIMING|n=8000|rep=3|seed=353039|ns=8290125|hull_size=22|valid=true
+TIMING|n=8000|rep=4|seed=453039|ns=6794792|hull_size=22|valid=true
+TIMING|n=8000|rep=5|seed=553039|ns=7067208|hull_size=20|valid=true
+TIMING|n=32000|rep=1|seed=177039|ns=24610417|hull_size=26|valid=true
+TIMING|n=32000|rep=2|seed=277039|ns=31431959|hull_size=26|valid=true
+TIMING|n=32000|rep=3|seed=377039|ns=39672625|hull_size=28|valid=true
+TIMING|n=32000|rep=4|seed=477039|ns=58306750|hull_size=27|valid=true
+TIMING|n=32000|rep=5|seed=577039|ns=32630291|hull_size=27|valid=true

@@ -1,0 +1,10 @@
+task=R45-T039
+status=PASS
+command=mvn -B test -Dtest=com.thealgorithms.geometry.GrahamScanTest,com.thealgorithms.geometry.GrahamScanScalingTest -Dsurefire.failIfNoSpecifiedTests=false
+mvn_exit=0
+tests_run=3
+failures=0
+errors=0
+skipped=0
+comparison_records=2
+timing_samples=15
