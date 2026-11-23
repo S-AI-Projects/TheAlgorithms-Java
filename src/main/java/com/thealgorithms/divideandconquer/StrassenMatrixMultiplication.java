@@ -17,8 +17,69 @@ package com.thealgorithms.divideandconquer;
 
 public class StrassenMatrixMultiplication {
 
+    private long multiplicationCount = 0;
+    private long additionCount = 0;
+    private long subtractionCount = 0;
+
+    /**
+     * Resets the operation counters to zero.
+     */
+    public void resetCounts() {
+        multiplicationCount = 0;
+        additionCount = 0;
+        subtractionCount = 0;
+    }
+
+    /**
+     * Returns the total number of multiply calls made.
+     *
+     * @return count of multiply calls
+     */
+    public long getMultiplicationCount() {
+        return multiplicationCount;
+    }
+
+    /**
+     * Returns the total number of matrix additions performed.
+     *
+     * @return count of add calls
+     */
+    public long getAdditionCount() {
+        return additionCount;
+    }
+
+    /**
+     * Returns the total number of matrix subtractions performed.
+     *
+     * @return count of sub calls
+     */
+    public long getSubtractionCount() {
+        return subtractionCount;
+    }
+
+    /**
+     * Standard O(n^3) matrix multiplication for cross-checking and work measurement.
+     *
+     * @param a first matrix of size n x n
+     * @param b second matrix of size n x n
+     * @return product matrix
+     */
+    public static int[][] standardMultiply(int[][] a, int[][] b) {
+        int n = a.length;
+        int[][] c = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int k = 0; k < n; k++) {
+                for (int j = 0; j < n; j++) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
+    }
+
     // Function to multiply matrices
     public int[][] multiply(int[][] a, int[][] b) {
+        multiplicationCount++;
         int n = a.length;
 
         int[][] mat = new int[n][n];
@@ -94,6 +155,7 @@ public class StrassenMatrixMultiplication {
 
     // Function to subtract two matrices
     public int[][] sub(int[][] a, int[][] b) {
+        subtractionCount++;
         int n = a.length;
 
         int[][] c = new int[n][n];
@@ -109,6 +171,7 @@ public class StrassenMatrixMultiplication {
 
     // Function to add two matrices
     public int[][] add(int[][] a, int[][] b) {
+        additionCount++;
         int n = a.length;
 
         int[][] c = new int[n][n];
