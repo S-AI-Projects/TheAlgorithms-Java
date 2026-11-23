@@ -52,4 +52,28 @@ public final class ClimbingStairs {
 
         return curr; // Ways to reach the nth step
     }
+
+    /**
+     * A runnable example demonstrating how to use {@link #numberOfWays(int)}
+     * and displaying the progression of ways to climb staircases of sizes 0 through 10.
+     *
+     * @param args command-line arguments (optional)
+     */
+    public static void main(String[] args) {
+        System.out.println("=== Climbing Stairs Demonstration ===");
+        System.out.println("You can climb either 1 or 2 steps at a time.");
+        System.out.println("Recurrence: ways(n) = ways(n - 1) + ways(n - 2)\n");
+
+        for (int steps = 0; steps <= 10; steps++) {
+            int ways = numberOfWays(steps);
+            System.out.printf("Steps: %2d  -->  Distinct ways: %3d%n", steps, ways);
+        }
+
+        System.out.println("\nExample breakdown for n = 4 (5 ways):");
+        System.out.println("  1. 1 + 1 + 1 + 1");
+        System.out.println("  2. 1 + 1 + 2");
+        System.out.println("  3. 1 + 2 + 1");
+        System.out.println("  4. 2 + 1 + 1");
+        System.out.println("  5. 2 + 2");
+    }
 }
