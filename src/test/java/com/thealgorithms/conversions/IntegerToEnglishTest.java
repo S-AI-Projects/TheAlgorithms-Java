@@ -17,15 +17,23 @@ public class IntegerToEnglishTest {
 
     @Test
     public void testSmallNumbers() {
+        assertEquals("One", IntegerToEnglish.integerToEnglishWords(1));
         assertEquals("Ten", IntegerToEnglish.integerToEnglishWords(10));
         assertEquals("Nineteen", IntegerToEnglish.integerToEnglishWords(19));
+        assertEquals("Twenty", IntegerToEnglish.integerToEnglishWords(20));
         assertEquals("Twenty One", IntegerToEnglish.integerToEnglishWords(21));
+        assertEquals("Thirty", IntegerToEnglish.integerToEnglishWords(30));
+        assertEquals("Forty Five", IntegerToEnglish.integerToEnglishWords(45));
         assertEquals("Ninety Nine", IntegerToEnglish.integerToEnglishWords(99));
     }
 
     @Test
     public void testHundreds() {
+        assertEquals("One Hundred", IntegerToEnglish.integerToEnglishWords(100));
         assertEquals("One Hundred One", IntegerToEnglish.integerToEnglishWords(101));
+        assertEquals("One Hundred Ten", IntegerToEnglish.integerToEnglishWords(110));
+        assertEquals("One Hundred Fifteen", IntegerToEnglish.integerToEnglishWords(115));
+        assertEquals("One Hundred Twenty", IntegerToEnglish.integerToEnglishWords(120));
         assertEquals("Five Hundred Fifty", IntegerToEnglish.integerToEnglishWords(550));
         assertEquals("Nine Hundred Ninety Nine", IntegerToEnglish.integerToEnglishWords(999));
     }
@@ -42,5 +50,7 @@ public class IntegerToEnglishTest {
         assertEquals("One Million", IntegerToEnglish.integerToEnglishWords(1_000_000));
         assertEquals("One Billion", IntegerToEnglish.integerToEnglishWords(1_000_000_000));
         assertEquals("Two Thousand", IntegerToEnglish.integerToEnglishWords(2000));
+        assertEquals("One Thousand One", IntegerToEnglish.integerToEnglishWords(1001));
+        assertEquals("One Million One", IntegerToEnglish.integerToEnglishWords(1_000_001));
     }
 }
