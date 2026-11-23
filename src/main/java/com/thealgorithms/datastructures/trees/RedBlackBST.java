@@ -7,10 +7,10 @@ import java.util.Scanner;
  */
 public class RedBlackBST {
 
-    private static final int RED = 0;
-    private static final int BLACK = 1;
+    static final int RED = 0;
+    static final int BLACK = 1;
 
-    private class Node {
+    class Node {
 
         int key = -1;
         int color = BLACK;
@@ -23,25 +23,37 @@ public class RedBlackBST {
         }
     }
 
-    private final Node nil = new Node(-1);
-    private Node root = nil;
+    final Node nil = new Node(-1);
+    Node root = nil;
+
+    public void printTree() {
+        printTree(root);
+    }
 
     public void printTree(Node node) {
-        if (node == nil) {
+        if (node == null || node == nil) {
             return;
         }
         printTree(node.left);
-        System.out.print(((node.color == RED) ? " R " : " B ") + "Key: " + node.key + " Parent: " + node.p.key + "\n");
+        System.out.print(((node.color == RED) ? " R " : " B ") + "Key: " + node.key + " Parent: " + (node.p != null ? node.p.key : -1) + "\n");
         printTree(node.right);
     }
 
+    public void printTreepre() {
+        printTreepre(root);
+    }
+
     public void printTreepre(Node node) {
-        if (node == nil) {
+        if (node == null || node == nil) {
             return;
         }
-        System.out.print(((node.color == RED) ? " R " : " B ") + "Key: " + node.key + " Parent: " + node.p.key + "\n");
+        System.out.print(((node.color == RED) ? " R " : " B ") + "Key: " + node.key + " Parent: " + (node.p != null ? node.p.key : -1) + "\n");
         printTreepre(node.left);
         printTreepre(node.right);
+    }
+
+    public void insert(int key) {
+        insert(new Node(key));
     }
 
     private Node findNode(Node findNode, Node node) {
